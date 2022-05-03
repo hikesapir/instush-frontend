@@ -1,0 +1,32 @@
+.app-header {
+    padding: 20px 30px;
+    background-color: $dark-blue;
+    color: $white;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+
+        .orange{
+            color: orange;
+        }
+
+        .bars{
+            font-size: 30px;
+            display: none;
+        }
+
+        .btn {
+            margin-left: 20px;
+            padding: 8px 16px;
+            border-color: $white;
+            background-color: #00000000;
+            border-radius: 8px;
+            color: $white;
+
+            &:hover {
+                background-color: $dark-blue-hover;
+            }
+        }
+    }
+}

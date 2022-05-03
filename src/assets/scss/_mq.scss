@@ -1,0 +1,30 @@
+/* MOBILE ONLY  */
+@media (max-width: 470px) {
+    .contact-list {
+        display: block;
+    }
+
+    .contact-preview {
+        justify-content: start;
+        width: 100%;
+
+        a {
+            flex-direction: row;
+        }
+    }
+
+    .app-header {
+        background-color: green;
+
+        .container {
+            .actions {
+                display: none;
+            }
+
+            .bars {
+                display: block;
+
+            }
+        }
+    }
+}

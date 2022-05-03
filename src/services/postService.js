@@ -1,0 +1,116 @@
+import { utilService } from "./util-service"
+import { storageService } from "./asyncStorageService"
+//CRUDL CREAT READ UPDATE DELETE LIST
+
+export const postService = {
+    query,
+
+}
+const POST_KEY = 'postDB'
+const gPosts = _createPosts()
+
+
+async function query(filterBy) {
+    const posts = await gPosts
+    console.log(posts);
+    return posts
+}
+
+
+async function _createPosts() {
+    try {
+        var posts = await storageService.query(POST_KEY)
+        if (!posts || !posts.length) {
+            posts = [
+                {
+                    "_id": "p101",
+                    "txt": "Point of view",
+                    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1651604330/instush/wjj9a7ucw8xauyvikxiq.jpg", //Can be an array if decide to support multiple imgs
+                    "createdAt": 1651604385128,
+                    "by": {
+                        "_id": "u101",
+                        "fullname": "Muki Muka",
+                        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                    },
+                    "loc": {
+                        "lat": 11.11,
+                        "lng": 22.22,
+                        "name": "Tel Aviv"
+                    },
+                    "comments": [
+                        {
+                            "id": "c1001",
+                            "by": {
+                                "_id": "u102",
+                                "fullname": "Ulash Ulashi",
+                                "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+                            },
+                            "txt": "good one!",
+                            "likedBy": [ // Optional
+                                {
+                                    "_id": "u101",
+                                    "fullname": "Muki Muka",
+                                    "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                                }
+                            ]
+                        }
+                    ],
+                    "likedBy": [
+                        {
+                            "_id": "u102",
+                            "fullname": "Ulash Ulashi",
+                            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+                        }
+                    ],
+                    "tags": ["fun", "kids"]
+                },
+                {
+                    "_id": "p102",
+                    "txt": "Best trip ever",
+                    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1651604328/instush/vivezflwf8hfyr8i4mgl.jpg", //Can be an array if decide to support multiple imgs
+                    "createdAt": 1651605049742,
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "Ulash Ulashi",
+                        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+                    },
+                    "loc": {
+                        "lat": 11.11,
+                        "lng": 22.22,
+                        "name": "Tel Aviv"
+                    },
+                    "comments": [
+                        {
+                            "id": "c1001",
+                            "by": {
+                                "_id": "u101",
+                                "fullname": "Muki Muka",
+                                "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                            },
+                            "txt": "good one!",
+                            "likedBy": [ // Optional
+                                {
+                                    "_id": "u102",
+                                    "fullname": "Ulash Ulashi",
+                                    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+                                }
+                            ]
+                        }
+                    ],
+                    "likedBy": [
+                        {
+                            "_id": "u101",
+                            "fullname": "Muki Muka",
+                            "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                        }
+                    ],
+                    "tags": ["fun", "kids"]
+                }
+            ]
+            return storageService.postMany(POST_KEY, posts)
+        } else return posts
+
+    } catch (err) {
+        console.log('postService: createPosts had issue: ' + err);
+    }
+}
