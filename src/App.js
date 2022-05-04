@@ -1,11 +1,10 @@
 import './assets/scss/style.scss'
-import PostList from './cmps/PostList';
+import { MainApp } from './pages/MainApp';
 
 function App() {
   return (
     <div className="App">
-      <h1>hello</h1>
-      <PostList></PostList>
+      <MainApp></MainApp>
     </div>
   );
 }
