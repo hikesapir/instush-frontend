@@ -12,9 +12,9 @@ class _MainApp extends Component {
     render() {
         const { posts } = this.props
         return (
-            <div>
+            <section className='main-app'>
                 <PostList posts={posts}></PostList>
-            </div>
+            </section >
         )
     }
 }

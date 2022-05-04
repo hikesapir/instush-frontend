@@ -1,0 +1,24 @@
+.post-preview {
+    width: 615px;
+    border: 1px solid $main-border;
+    background-color: $white;
+
+    header {
+        display: flex;
+        padding: 14px 16px;
+        gap: 14px;
+        align-items: center;
+
+        img {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+    }
+
+    footer{
+        max-width: 335px;
+        padding: 0 16px;
+    }
+}

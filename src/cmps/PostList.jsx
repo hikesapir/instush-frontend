@@ -5,9 +5,9 @@ export function PostList({ posts }) {
   if (!posts) return <div>Loading...</div>
 
   return (
-    <div>
+    <section className="post-list">
       {posts.map((post) => <PostPreview post={post} key={post._id}></PostPreview>)}
-    </div>
+    </section>
   )
 }
 
