@@ -3,15 +3,18 @@
 @import'./setup/variables';
 
 /** BASE **/
+@import './basics/typography';
 @import './basics/base';
 @import './basics/helpers';
 
 /** PAGES **/
 @import './pages/home-page';
+@import './pages/main-app';
 
 
 /** COMPONENTS **/
 @import './cmps/post-preview';
+@import './cmps/side-bar';
 
 /** MQ **/
 @import './mq';

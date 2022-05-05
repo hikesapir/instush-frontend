@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { PostList } from '../cmps/PostList'
+import { SideBar } from '../cmps/SideBar';
 import { loadPosts } from '../store/actions/postActions';
 
 class _MainApp extends Component {
@@ -14,6 +15,7 @@ class _MainApp extends Component {
         return (
             <section className='main-app'>
                 <PostList posts={posts}></PostList>
+                <SideBar></SideBar>
             </section >
         )
     }

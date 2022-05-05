@@ -2,6 +2,8 @@
     width: 615px;
     border: 1px solid $main-border;
     background-color: $white;
+    margin-bottom: 15px;
+    border-radius: 2px;
 
     header {
         display: flex;
@@ -12,11 +14,26 @@
         img {
             height: 32px;
             width: 32px;
+            border: 1px solid $white;
             border-radius: 50%;
             object-fit: contain;
         }
     }
 
+    .actions{
+        padding: 8px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left{
+            display: flex;
+            align-items: center;
+            .heart-icon,.comment-icon,.paper-plane-icon,.bookmark-icon{
+                padding: 8px;
+            }
+        }
+    }
     footer{
         max-width: 335px;
         padding: 0 16px;

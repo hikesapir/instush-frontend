@@ -6,7 +6,7 @@ const posts = [
     "createdAt": 1651604385128,
     "by": {
       "_id": "u101",
-      "fullname": "Muki Muka",
+      "username": "Muko",
       "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
     },
     "loc": {
@@ -19,14 +19,14 @@ const posts = [
         "id": "c1001",
         "by": {
           "_id": "u102",
-          "fullname": "Ulash Ulashi",
+          "username": "Ulash",
           "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
         },
         "txt": "good one!",
         "likedBy": [ // Optional
           {
             "_id": "u101",
-            "fullname": "Muki Muka",
+            "username": "Muko",
             "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
           }
         ]
@@ -35,7 +35,7 @@ const posts = [
     "likedBy": [
       {
         "_id": "u102",
-        "fullname": "Ulash Ulashi",
+        "username": "Ulash",
         "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
       }
     ],
@@ -48,7 +48,7 @@ const posts = [
     "createdAt": 1651605049742,
     "by": {
       "_id": "u102",
-      "fullname": "Ulash Ulashi",
+      "username": "Ulash",
       "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
     },
     "loc": {
@@ -61,14 +61,14 @@ const posts = [
         "id": "c1001",
         "by": {
           "_id": "u101",
-      "fullname": "Muki Muka",
-      "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          "username": "Muko",
+          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
         },
         "txt": "good one!",
         "likedBy": [ // Optional
           {
             "_id": "u102",
-            "fullname": "Ulash Ulashi",
+            "username": "Ulash",
             "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
           }
         ]
@@ -77,7 +77,7 @@ const posts = [
     "likedBy": [
       {
         "_id": "u101",
-        "fullname": "Muki Muka",
+        "username": "Muko",
         "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
       }
     ],
@@ -87,22 +87,22 @@ const posts = [
 
 const users = [{
   "_id": "u101",
-  "fullname": "Muki Muka",
-  "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
   "username": "Muko",
+  "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+  "fullname": "Muki Muka",
   "password": "123",
   "createdAt": 1651504622095,
   "following": [
     {
       "_id": "u102",
-      "fullname": "Ulash Ulashi",
+      "username": "Ulash",
       "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
     }
   ],
   "followers": [
     {
       "_id": "u102",
-      "fullname": "Ulash Ulashi",
+      "username": "Ulash",
       "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
     }
   ],
@@ -111,22 +111,22 @@ const users = [{
 },
 {
   "_id": "u102",
-  "fullname": "Ulash Ulashi",
-  "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
   "username": "Ulash",
+  "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+  "fullname": "Ulash Ulashi",
   "password": "123",
   "createdAt": 1651604622095,
   "following": [
     {
       "_id": "u101",
-      "fullname": "Muki Muka",
+      "username": "Muko",
       "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
     }
   ],
   "followers": [
     {
       "_id": "u101",
-      "fullname": "Muki Muka",
+      "username": "Muko",
       "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
     }
   ],

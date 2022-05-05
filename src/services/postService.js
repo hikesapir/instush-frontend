@@ -29,7 +29,7 @@ async function _createPosts() {
                     "createdAt": 1651604385128,
                     "by": {
                         "_id": "u101",
-                        "fullname": "Muki Muka",
+                        "username": "Muko",
                         "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                     },
                     "loc": {
@@ -42,14 +42,14 @@ async function _createPosts() {
                             "id": "c1001",
                             "by": {
                                 "_id": "u102",
-                                "fullname": "Ulash Ulashi",
+                                "username": "Ulash",
                                 "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
                             },
                             "txt": "good one!",
                             "likedBy": [ // Optional
                                 {
                                     "_id": "u101",
-                                    "fullname": "Muki Muka",
+                                    "username": "Muko",
                                     "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                                 }
                             ]
@@ -58,7 +58,7 @@ async function _createPosts() {
                     "likedBy": [
                         {
                             "_id": "u102",
-                            "fullname": "Ulash Ulashi",
+                            "username": "Ulash",
                             "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
                         }
                     ],
@@ -71,7 +71,7 @@ async function _createPosts() {
                     "createdAt": 1651605049742,
                     "by": {
                         "_id": "u102",
-                        "fullname": "Ulash Ulashi",
+                        "username": "Ulash",
                         "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
                     },
                     "loc": {
@@ -84,14 +84,14 @@ async function _createPosts() {
                             "id": "c1001",
                             "by": {
                                 "_id": "u101",
-                                "fullname": "Muki Muka",
+                                "username": "Muko",
                                 "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                             },
                             "txt": "good one!",
                             "likedBy": [ // Optional
                                 {
                                     "_id": "u102",
-                                    "fullname": "Ulash Ulashi",
+                                    "username": "Ulash",
                                     "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
                                 }
                             ]
@@ -100,7 +100,7 @@ async function _createPosts() {
                     "likedBy": [
                         {
                             "_id": "u101",
-                            "fullname": "Muki Muka",
+                            "username": "Muko",
                             "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
                         }
                     ],
