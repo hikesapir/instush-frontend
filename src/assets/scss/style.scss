@@ -13,8 +13,10 @@
 
 
 /** COMPONENTS **/
+@import './cmps/app-header';
 @import './cmps/post-preview';
 @import './cmps/side-bar';
+@import './cmps/story-list';
 
 /** MQ **/
 @import './mq';

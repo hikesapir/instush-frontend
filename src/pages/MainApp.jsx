@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { AppHeader } from '../cmps/AppHeader';
 import { PostList } from '../cmps/PostList'
 import { SideBar } from '../cmps/SideBar';
 import { StoryList } from '../cmps/StoryList';
@@ -21,14 +22,17 @@ class _MainApp extends Component {
 
     render() {
         const { posts, stories, loggedinUser } = this.props
-
+        if (!loadLoggedinUser) return <div>Loading...</div>
         return (
             <section className='main-app'>
-                <main>
-                    <StoryList stories={stories}></StoryList>
-                    <PostList posts={posts} onClickLikeBtn={this.onClickLikeBtn} userId={loggedinUser?._id}></PostList>
-                </main>
-                <SideBar user={loggedinUser}></SideBar>
+                <AppHeader userImg={loggedinUser.imgUrl}></AppHeader>
+                <section className='main-content'>
+                    <main>
+                        <StoryList stories={stories}></StoryList>
+                        <PostList posts={posts} onClickLikeBtn={this.onClickLikeBtn} userId={loggedinUser?._id}></PostList>
+                    </main>
+                    <SideBar user={loggedinUser}></SideBar>
+                </section>
             </section >
         )
     }
