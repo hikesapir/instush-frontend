@@ -21,7 +21,6 @@ export function postReducer(state = INITIAL_STATE, action) {
                 posts: state.posts.filter(post => post._id !== action.postId)
             }
         case 'UPDATE_POSTS':
-            console.log(action.savedPost);
             return {
                 ...state,
                 posts: state.posts.map(post => post._id === action.savedPost._id ? action.savedPost : post)
