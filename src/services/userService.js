@@ -52,14 +52,16 @@ async function login() {
         "savedPostIds": [],
         "stories": []
     }
-    return storageService.post(STORAGE_KEY_LOGGEDIN_USER, user)
+    localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
 }
 
 async function getLoggedinUser() {
-    var user = await storageService.query()
-    if (!user.length) user = await login()
-    return user
-    //     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || 'null')
+    // var user = await storageService.query()
+    // if (!user.length) user = await login()
+    // return user
+    console.log();
+    return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || login()
 }
 
 async function signup(userCred) {

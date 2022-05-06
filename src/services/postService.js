@@ -4,7 +4,7 @@ import { storageService } from "./asyncStorageService"
 
 export const postService = {
     query,
-
+    updatePost
 }
 const POST_KEY = 'postDB'
 const gPosts = _createPosts()
@@ -13,6 +13,33 @@ const gPosts = _createPosts()
 async function query(filterBy) {
     const posts = await gPosts
     return posts
+}
+
+async function savePost(post) {
+    try {
+        if (post._id) {
+            var res = await storageService.put(POST_KEY, post)
+        } else {
+            var res = await storageService.post(POST_KEY, post)
+        }
+        return res
+    } catch (err) {
+        console.log('save err', err);
+        throw err
+    }
+}
+
+
+async function updatePost(caseType, post, user) {
+
+    switch (caseType) {
+        case 'like-clicked':
+            var idx = post.likedBy.findIndex(likedBy => user._id === likedBy._id)
+            if (idx === -1) post.likedBy.push(user)
+            else post.likedBy.splice(idx, 1)
+            break;
+    }
+    return await savePost(post)
 }
 
 
