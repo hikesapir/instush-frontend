@@ -3,15 +3,17 @@ import { connect } from 'react-redux'
 import { PostList } from '../cmps/PostList'
 import { SideBar } from '../cmps/SideBar';
 import { loadPosts } from '../store/actions/postActions';
+import { loadLoggedinUser } from '../store/actions/userActions';
 
 class _MainApp extends Component {
     componentDidMount() {
-        console.log(this.state);
         this.props.loadPosts()
+        this.props.loadLoggedinUser()
     }
 
     render() {
-        const { posts } = this.props
+        const { posts, loggedinUser } = this.props
+
         return (
             <section className='main-app'>
                 <PostList posts={posts}></PostList>
@@ -23,11 +25,14 @@ class _MainApp extends Component {
 
 const mapStateToProps = state => {
     return {
-        posts: state.posts
+        posts: state.postModule.posts,
+        loggedinUser: state.userModule.loggedinUser
+
     }
 }
 const mapDispatchToProps = {
-    loadPosts
+    loadPosts,
+    loadLoggedinUser
 }
 
 

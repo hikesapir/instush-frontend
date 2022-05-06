@@ -12,7 +12,6 @@ const gPosts = _createPosts()
 
 async function query(filterBy) {
     const posts = await gPosts
-    console.log(posts);
     return posts
 }
 
