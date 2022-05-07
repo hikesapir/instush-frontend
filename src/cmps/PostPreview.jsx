@@ -29,8 +29,13 @@ export const PostPreview = ({ post, user }) => {
       by: user,
       likedBy: []
     })
-    // await robotService.save({ ...robot })
-    // props.history.push('/')
+  }
+
+  const focusComment = () => {
+    document.getElementById("input-comment").focus()
+  }
+  const inputRef = (elInput) => {
+    if (elInput) elInput.focus()
   }
 
   const timeNow = Date.now();
@@ -64,7 +69,7 @@ export const PostPreview = ({ post, user }) => {
       <div className="actions">
         <div className="left">
           {likeIcon}
-          <span className="comment-icon"><svg color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M20.656 17.008a9.993 9.993 0 10-3.59 3.615L22 22z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg></span>
+          <span className="comment-icon" onClick={focusComment}><svg color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M20.656 17.008a9.993 9.993 0 10-3.59 3.615L22 22z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path></svg></span>
           <span className="paper-plane-icon"><svg color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><line fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></polygon></svg></span>
         </div>
         <span className="bookmark-icon"><svg color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polygon></svg></span>
@@ -80,7 +85,7 @@ export const PostPreview = ({ post, user }) => {
       </footer>
       <form className="add-comment" onSubmit={onPostComment}>
         <span className="smile-icon"><svg color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg></span>
-        <textarea placeholder="Add a comment…" autoComplete="off" autoCorrect="off" onChange={handleChange} value={comment.txt} name='txt'></textarea>
+        <textarea placeholder="Add a comment…" autoComplete="off" autoCorrect="off" onChange={handleChange} value={comment.txt} name='txt' id="input-comment"></textarea>
         <button disabled={!comment.txt}>Post</button>
       </form>
     </section>
