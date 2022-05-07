@@ -1,24 +1,26 @@
 .story-list {
-    padding: 16px 0;
+    padding: 15px 20px;
     border-radius: 2px;
     margin-bottom: 24px;
     display: flex;
     background-color: $white;
     border: 1px solid $main-border;
-
+    gap: 20px;
 
     .story-perview {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        font-size: rem(12px);
 
         .is-shown-border {
-            width: 56px;
-            height: 56px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             position: relative;
             z-index: 1;
+            margin-bottom: 5px;
 
             &::before {
                 border-radius: 50%;
@@ -33,8 +35,8 @@
 
             img {
                 position: absolute;
-                width: 56px;
-                height: 56px;
+                width: 55px;
+                height: 55px;
                 border-radius: 50%;
                 border: 2px solid $white;
             }

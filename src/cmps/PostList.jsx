@@ -1,12 +1,12 @@
 import { PostPreview } from "./PostPreview"
 
-export function PostList({ posts, onClickLikeBtn, userId }) {
+export function PostList({ posts, user }) {
 
-  if (!posts || !userId) return <div>Loading...</div>
+  if (!posts || !user) return <div>Loading...</div>
 
   return (
     <section className="post-list">
-      {posts.map((post) => <PostPreview post={post} key={post._id} onClickLikeBtn={onClickLikeBtn} userId={userId}></PostPreview>)}
+      {posts.map((post) => <PostPreview post={post} key={post._id} user={user}></PostPreview>)}
     </section>
   )
 }

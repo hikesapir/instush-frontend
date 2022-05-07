@@ -19,3 +19,16 @@ export function likeClicked(post, user) {
         }
     }
 }
+
+export function addComment(post, user, comment) {
+    return async (dispatch) => {
+        try {
+            const savedPost = await postService.updatePost('add-comment', post, user, comment)
+            dispatch({ type: 'UPDATE_POSTS', savedPost })
+        } catch (err) {
+            console.log('err:', err)
+
+        }
+
+    }
+}

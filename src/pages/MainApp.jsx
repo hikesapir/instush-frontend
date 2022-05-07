@@ -4,7 +4,7 @@ import { AppHeader } from '../cmps/AppHeader';
 import { PostList } from '../cmps/PostList'
 import { SideBar } from '../cmps/SideBar';
 import { StoryList } from '../cmps/StoryList';
-import { loadPosts, likeClicked } from '../store/actions/postActions';
+import { loadPosts } from '../store/actions/postActions';
 import { loadStories } from '../store/actions/srotyActions';
 import { loadLoggedinUser } from '../store/actions/userActions';
 
@@ -15,21 +15,21 @@ class _MainApp extends Component {
         this.props.loadLoggedinUser()
     }
 
-    onClickLikeBtn = async (post) => {
-        const { _id, username, imgUrl } = this.props.loggedinUser
-        this.props.likeClicked(post, { _id, username, imgUrl })
-    }
-
     render() {
         const { posts, stories, loggedinUser } = this.props
-        if (!loadLoggedinUser) return <div>Loading...</div>
+        if (!loggedinUser) return <div>Loading...</div>
+        const user = {
+            _id: loggedinUser._id,
+            username: loggedinUser.username,
+            imgUrl: loggedinUser.imgUrl
+        }
         return (
             <section className='main-app'>
                 <AppHeader userImg={loggedinUser.imgUrl}></AppHeader>
                 <section className='main-content'>
                     <main>
                         <StoryList stories={stories}></StoryList>
-                        <PostList posts={posts} onClickLikeBtn={this.onClickLikeBtn} userId={loggedinUser?._id}></PostList>
+                        <PostList posts={posts} user={user}></PostList>
                     </main>
                     <SideBar user={loggedinUser}></SideBar>
                 </section>
@@ -48,7 +48,6 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = {
     loadPosts,
-    likeClicked,
     loadStories,
     loadLoggedinUser
 }
