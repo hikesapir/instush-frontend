@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    loggedinUser: null
+    loggedinUser: null,
+    currUser: null
 }
 
 export function userReducer(state = INITIAL_STATE, action) {
@@ -10,7 +11,12 @@ export function userReducer(state = INITIAL_STATE, action) {
                 ...state,
                 loggedinUser: action.loggedinUser
             }
-       
+        case 'SET_CURR_USER':
+            return {
+                ...state,
+                currUser: action.currUser
+            }
+
 
         default:
             return state;
