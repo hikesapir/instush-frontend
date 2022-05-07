@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from '../hooks/useForm'
-import {  likeClicked } from '../store/actions/postActions';
+import { addComment, likeClicked } from '../store/actions/postActions';
 
 
 export const PostPreview = ({ post, user }) => {
@@ -9,6 +9,7 @@ export const PostPreview = ({ post, user }) => {
   const [comment, handleChange, setComment] = useForm({
     txt: '',
     by: user,
+    likedBy: []
   })
 
   console.log(comment);
@@ -21,7 +22,13 @@ export const PostPreview = ({ post, user }) => {
 
   const onPostComment = async (ev) => {
     ev.preventDefault()
-  
+    dispatch(addComment(post, comment))
+
+    setComment({
+      txt: '',
+      by: user,
+      likedBy: []
+    })
     // await robotService.save({ ...robot })
     // props.history.push('/')
   }

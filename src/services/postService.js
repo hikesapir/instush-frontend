@@ -29,15 +29,16 @@ async function savePost(post) {
     }
 }
 
-async function updatePost(caseType, post, user, data) {
+async function updatePost(caseType, post, data) {
 
     switch (caseType) {
         case 'like-clicked':
-            var idx = post.likedBy.findIndex(likedBy => user._id === likedBy._id)
-            if (idx === -1) post.likedBy.push(user)
+            var idx = post.likedBy.findIndex(user => user._id === data._id)
+            if (idx === -1) post.likedBy.push(data)
             else post.likedBy.splice(idx, 1)
             break;
         case 'add-comment':
+            data.createdAt = Date.now()
             post.comments.push(data)
             break;
     }
