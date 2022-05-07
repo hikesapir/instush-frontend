@@ -14,7 +14,6 @@ class _MainApp extends Component {
 
     render() {
         const { posts, stories, loggedinUser } = this.props
-        console.log(posts);
         if (!loggedinUser) return <div>Loading...</div>
         const user = {
             _id: loggedinUser._id,

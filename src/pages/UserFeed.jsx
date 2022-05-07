@@ -8,13 +8,16 @@ export const UserFeed = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(loadCurrnUser(params.userId))
+        return () => {
+            dispatch(loadCurrnUser(null))
+        }
     }, [params.userId])
 
     const { currUser } = useSelector(state => state.userModule)
     var posts = useSelector(state => state.postModule.posts)
     if (!currUser || !posts) return <div>Loading...</div>
     posts = posts.filter(post => post.by._id === currUser._id)
-    
+
     return (
         <div>UserFeed
             <img src={currUser.imgUrl} alt="" />

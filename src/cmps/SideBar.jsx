@@ -1,13 +1,18 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
-export function SideBar({user}) {
+export function SideBar({ user }) {
+    const history = useHistory()
+    const goTOProfile = () => {
+        history.push(`/feed/${user._id}`)
+    }
     if (!user) return <div>Loading...</div>
 
     return (
         <section className='side-bar'>
             <header>
-                <img src={user.imgUrl} alt="" />
-            <span>{user.username}</span>
+                <img className='pointer' onClick={goTOProfile} src={user.imgUrl} alt="" />
+                <span>{user.username}</span>
             </header>
             <h1>Suggestions For You</h1>
             <img src="https://res.cloudinary.com/mistertoysss/image/upload/v1648414113/funday%20must/photo-1568602471122-7832951cc4c5_fbs2vc.jpg" alt="" />

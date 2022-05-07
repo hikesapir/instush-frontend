@@ -33,6 +33,11 @@
         .logo {
             font-family: instagram-new;
             font-size: rem(30px);
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: scale(0.9);
+            }
         }
 
         .route {
