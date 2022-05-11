@@ -1,0 +1,56 @@
+.user-feed {
+    font-size: 16px;
+    padding: 30px 20px 0 20px;
+
+    header {
+        display: flex;
+        gap: 30px;
+        padding-bottom: 45px;
+        border-bottom: 1px $main-border solid;
+        // align-items: center;
+
+        img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 0 solid #000000;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            font-size: rem(28px);
+
+            >* {
+                margin-left: 20px;
+            }
+        }
+
+        .info {
+            display: flex;
+            gap: 40px;
+
+        }
+
+        button {
+            background-color: $white;
+            padding: 5px 9px;
+            border-radius: 4px;
+            border: 1px solid rgb(219, 219, 219);
+        }
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        padding-top: 50px;
+
+        .img-container {
+            width: 290px;
+            height: 290px;
+            img{
+                object-fit: cover;
+            }
+        }
+    }
+}
