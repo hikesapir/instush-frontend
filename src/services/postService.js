@@ -4,7 +4,8 @@ import { storageService } from "./asyncStorageService"
 
 export const postService = {
     query,
-    updatePost
+    updatePost,
+    getById
 }
 const POST_KEY = 'postDB'
 const gPosts = _createPosts()
@@ -45,6 +46,11 @@ async function updatePost(caseType, post, data) {
     return await savePost(post)
 }
 
+async function getById(id) {
+    if (!gPosts.length) _createPosts()
+    const post = await storageService.getById(POST_KEY, id)
+    return post;
+}
 
 async function _createPosts() {
     try {

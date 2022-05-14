@@ -7,6 +7,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { UserFeed } from './pages/UserFeed';
 import { loadLoggedinUser } from './store/actions/userActions';
 import { loadPosts } from './store/actions/postActions';
+import { PostDetails } from './pages/PostDetails';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <div className="App">
         <AppHeader></AppHeader>
         <Switch>
+          <Route path="/post/:postId" component={PostDetails}></Route>
           <Route path="/feed/:userId" component={UserFeed}></Route>
           <Route path="/" component={MainApp}></Route>
         </Switch>
