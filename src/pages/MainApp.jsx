@@ -21,18 +21,19 @@ export const MainApp = () => {
     const { loggedinUser } = useSelector(state => state.userModule)
 
     if (!loggedinUser) return <div>Loading...</div>
-
-    const user = {
-        _id: loggedinUser._id,
-        username: loggedinUser.username,
-        imgUrl: loggedinUser.imgUrl
-    }
+// console.log(loggedinUser);
+//     const user = {
+//         _id: loggedinUser._id,
+//         username: loggedinUser.username,
+//         imgUrl: loggedinUser.imgUrl,
+//         savedPostIds: loggedinUser.savedUserIds
+//     }
     return (
         <section className='main-app'>
             <section className='main-content'>
                 <main>
                     <StoryList stories={stories}></StoryList>
-                    <PostList posts={posts} user={user}></PostList>
+                    <PostList posts={posts} user={loggedinUser}></PostList>
                 </main>
                 <SideBar user={loggedinUser}></SideBar>
             </section>

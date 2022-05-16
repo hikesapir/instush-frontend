@@ -12,7 +12,7 @@ export const userService = {
     // getUsers,
     getById,
     // remove,
-    // update,
+    update,
 }
 
 // Debug technique
@@ -51,8 +51,7 @@ async function login() {
                 "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
             }
         ],
-        "savedUserIds": [],
-        "stories": []
+        "savedPostIds": [],
     }
     localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
@@ -82,6 +81,12 @@ async function getById(userId) {
     return user;
 }
 
+async function update(user) {
+    await storageService.put(USER_KEY, user)
+    // Handle case in which admin updates other user's details
+    if (getLoggedinUser()._id === user._id) storageService.user(STORAGE_KEY_LOGGEDIN_USER, user)
+    return user;
+}
 
 
 
@@ -96,12 +101,7 @@ function remove(userId) {
     return storageService.remove('user', userId)
 }
 
-async function update(user) {
-    await storageService.put('user', user)
-    // Handle case in which admin updates other user's details
-    if (getLoggedinUser()._id === user._id) storageService.user(STORAGE_KEY_LOGGEDIN_USER, user)
-    return user;
-}
+
 
 
 async function _createUsers() {

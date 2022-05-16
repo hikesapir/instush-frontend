@@ -46,8 +46,9 @@ function put(entityType, updatedEntity) {
   return query(entityType).then((entities) => {
     const idx = entities.findIndex(
       (entity) => entity._id === updatedEntity._id
-    )
-    entities.splice(idx, 1, updatedEntity)
+      )
+      entities.splice(idx, 1, updatedEntity)
+     
     _save(entityType, entities)
     return updatedEntity
   })

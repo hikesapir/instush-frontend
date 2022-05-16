@@ -12,3 +12,13 @@ export function loadCurrnUser(id) {
         dispatch({ type: 'SET_CURR_USER', currUser })
     }
 }
+export function savedPost(user,postId) {
+    return async (dispatch) => {
+        const idx = user.savedPostIds.findIndex(id => id === postId)
+            if (idx === -1) user.savedPostIds.push(postId)
+            else user.savedPostIds.splice(idx, 1)
+       
+        await userService.update(user)
+        dispatch({ type: 'UPDATE_USER', user })
+    }
+}

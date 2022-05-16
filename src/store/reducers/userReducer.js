@@ -16,6 +16,11 @@ export function userReducer(state = INITIAL_STATE, action) {
                 ...state,
                 currUser: action.currUser
             }
+        case 'UPDATE_USER':
+            return {
+                ...state,
+                loggedinUser: action.user
+            }
 
 
         default:
