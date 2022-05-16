@@ -11,6 +11,7 @@
 @import './pages/home-page';
 @import './pages/main-app';
 @import './pages/user-feed';
+@import './pages/post-details';
 
 
 /** COMPONENTS **/
@@ -18,6 +19,8 @@
 @import './cmps/post-preview';
 @import './cmps/side-bar';
 @import './cmps/story-list';
+@import './cmps/add-comment';
+@import './cmps/post-actions';
 
 /** MQ **/
 @import './mq';

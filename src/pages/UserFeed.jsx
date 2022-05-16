@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { loadCurrnUser } from '../store/actions/userActions'
 import { ReactComponent as UnfollowIcon } from '../assets/icons/unfollow-icon.svg';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 export const UserFeed = () => {
     const params = useParams()
+    const history = useHistory()
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(loadCurrnUser(params.userId))
@@ -14,6 +17,10 @@ export const UserFeed = () => {
             dispatch(loadCurrnUser(null))
         }
     }, [params.userId])
+
+    const goToPost = (id) => {
+        history.push(`/post/${id}`)
+    }
 
     const { currUser } = useSelector(state => state.userModule)
     var posts = useSelector(state => state.postModule.posts)
@@ -37,12 +44,12 @@ export const UserFeed = () => {
             <main className='grid-container'>
                 {posts?.map(post => {
                     return (
-                        <div className='img-container' key={post._id}>
+                        <div className='img-container pointer' key={post._id} onClick={() => goToPost(post._id)}>
                             <img src={post.imgUrl} alt="" />
                         </div>
                     )
                 })}
             </main>
-        </section>
+        </section >
     )
 }

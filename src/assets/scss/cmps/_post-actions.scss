@@ -1,0 +1,23 @@
+.post-actions {
+    padding: 8px 16px;
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            .heart-icon,
+            .comment-icon,
+            .paper-plane-icon,
+            .bookmark-icon {
+                padding: 8px;
+            }
+            .heart-icon{
+                padding-left: 0;
+            }
+        }
+    }
+}
