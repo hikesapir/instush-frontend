@@ -59,7 +59,7 @@ export const PostDetails = (props) => {
                         )
                     })}
                 </main>
-                <PostActions post={post} user={user}></PostActions>
+                <PostActions post={post} user={loggedinUser}></PostActions>
                 <AddComment post={post} user={user} />
 
             </div>
