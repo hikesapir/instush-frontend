@@ -26,7 +26,8 @@ async function _createStories() {
                     "by": {
                         "_id": "u101",
                         "username": "Muko",
-                        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+                        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+                        "fullname": "Muki Muka",
                     }
                 },
                 {
@@ -36,7 +37,8 @@ async function _createStories() {
                     "by": {
                         "_id": "u102",
                         "username": "Ulash",
-                        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+                        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+                        "fullname": "Ulash Ulashi"
                     }
                 }
             ]

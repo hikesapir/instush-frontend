@@ -7,7 +7,8 @@ const posts = [
     "by": {
       "_id": "u101",
       "username": "Muko",
-      "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+      "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+      "fullname": "Muki Muka",
     },
     "loc": {
       "lat": 11.11,
@@ -20,14 +21,16 @@ const posts = [
         "by": {
           "_id": "u102",
           "username": "Ulash",
-          "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+          "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+          "fullname": "Ulash Ulashi"
         },
         "txt": "good one!",
         "likedBy": [ // Optional
           {
             "_id": "u101",
             "username": "Muko",
-            "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+            "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+            "fullname": "Muki Muka",
           }
         ]
       }
@@ -36,9 +39,9 @@ const posts = [
       {
         "_id": "u102",
         "username": "Ulash",
-        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
-      }
-    ],
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+        "fullname": "Ulash Ulashi"
+      }],
     "tags": ["fun", "kids"]
   },
   {
@@ -49,7 +52,8 @@ const posts = [
     "by": {
       "_id": "u102",
       "username": "Ulash",
-      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+      "fullname": "Ulash Ulashi"
     },
     "loc": {
       "lat": 11.11,
@@ -62,14 +66,16 @@ const posts = [
         "by": {
           "_id": "u101",
           "username": "Muko",
-          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+          "fullname": "Muki Muka",
         },
         "txt": "good one!",
         "likedBy": [ // Optional
           {
             "_id": "u102",
             "username": "Ulash",
-            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+            "fullname": "Ulash Ulashi"
           }
         ]
       }
@@ -78,7 +84,8 @@ const posts = [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       }
     ],
     "tags": ["fun", "kids"]
@@ -91,7 +98,8 @@ const posts = [
     "by": {
       "_id": "u102",
       "username": "Ulash",
-      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+      "fullname": "Ulash Ulashi"
     },
     "loc": {
       "lat": 11.11,
@@ -104,14 +112,16 @@ const posts = [
         "by": {
           "_id": "u101",
           "username": "Muko",
-          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+          "fullname": "Muki Muka",
         },
         "txt": "good one!",
         "likedBy": [ // Optional
           {
             "_id": "u102",
             "username": "Ulash",
-            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+            "fullname": "Ulash Ulashi"
           }
         ]
       }
@@ -120,7 +130,8 @@ const posts = [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       }
     ],
     "tags": ["fun", "kids"]
@@ -133,7 +144,8 @@ const posts = [
     "by": {
       "_id": "u103",
       "username": "guest",
-      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png"
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+      "fullname": "ghost guest",
     },
     "loc": {
       "lat": 11.11,
@@ -146,14 +158,16 @@ const posts = [
         "by": {
           "_id": "u101",
           "username": "Muko",
-          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+          "fullname": "Muki Muka",
         },
         "txt": "good one!",
         "likedBy": [ // Optional
           {
             "_id": "u102",
             "username": "Ulash",
-            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+            "fullname": "Ulash Ulashi"
           }
         ]
       }
@@ -162,7 +176,8 @@ const posts = [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       }
     ],
     "tags": ["fun", "kids"]
@@ -176,6 +191,7 @@ const posts = [
       "_id": "u102",
       "username": "Ulash",
       "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+      "fullname": "Ulash Ulashi"
     },
     "loc": {
       "lat": 11.11,
@@ -188,14 +204,16 @@ const posts = [
         "by": {
           "_id": "u101",
           "username": "Muko",
-          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+          "fullname": "Muki Muka",
         },
         "txt": "good one!",
         "likedBy": [ // Optional
           {
             "_id": "u102",
             "username": "Ulash",
-            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+            "fullname": "Ulash Ulashi"
           }
         ]
       }
@@ -204,7 +222,8 @@ const posts = [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       }
     ],
     "tags": ["fun", "kids"]
@@ -223,14 +242,16 @@ const users = [
       {
         "_id": "u102",
         "username": "Ulash",
-        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+        "fullname": "Ulash Ulashi"
       }
     ],
     "followers": [
       {
         "_id": "u102",
         "username": "Ulash",
-        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+        "fullname": "Ulash Ulashi"
       }
     ],
     "savedPostIds": ["p101"],
@@ -247,14 +268,16 @@ const users = [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       }
     ],
     "followers": [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       }
     ],
     "savedPostIds": ["p102"],
@@ -271,24 +294,28 @@ const users = [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       },
       {
         "_id": "u102",
         "username": "Ulash",
-        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+        "fullname": "Ulash Ulashi"
       }
     ],
     "followers": [
       {
         "_id": "u101",
         "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
       },
       {
         "_id": "u102",
         "username": "Ulash",
-        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+        "fullname": "Ulash Ulashi"
       }
     ],
     "savedPostIds": [],
@@ -304,7 +331,8 @@ const stories = [
     "by": {
       "_id": "u101",
       "username": "Muko",
-      "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+      "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+      "fullname": "Muki Muka",
     }
   },
   {
@@ -314,7 +342,8 @@ const stories = [
     "by": {
       "_id": "u102",
       "username": "Ulash",
-      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+      "fullname": "Ulash Ulashi"
     }
   }
 ]
