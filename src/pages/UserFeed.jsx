@@ -34,6 +34,8 @@ export const UserFeed = () => {
     var posts = useSelector(state => state.postModule.posts)
 
     if (!currUser) return <div>Loading...</div>
+    console.log(currUser.following);
+    console.log(loggedinUser._id , currUser._id);
 
     // if (!currUser || !posts) return <div>Loading...</div>
     posts = posts.filter(post => post.by._id === currUser._id)
@@ -48,7 +50,7 @@ export const UserFeed = () => {
                         <button className='bold'>{(loggedinUser._id !== currUser._id) ? 'Message' : 'Edit Profile'}</button>
                         {
                             (loggedinUser._id !== currUser._id) ?
-                                (loggedinUser.following.some(user => user._id === currUser._id)
+                                (currUser.followers.some(user => user._id === loggedinUser._id)
                                     ? <button onClick={() => follow(loggedinUser, currUser)} ><UnfollowIcon /></button>
                                     : <FollowBtn loggedinUser={loggedinUser} userToFollow={currUser} />)
                                 : <></>

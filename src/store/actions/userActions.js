@@ -24,10 +24,12 @@ export function savedPost(user, postId) {
 }
 export function startFollow(loggedinUser, userToFollow) {
     return async (dispatch) => {
+        const { _id, username, imgUrl, fullname } = loggedinUser
         const idx = loggedinUser.following.findIndex(user => user._id === userToFollow._id)
         if (idx === -1) loggedinUser.following.push(userToFollow)
         else loggedinUser.following.splice(idx, 1)
         const user = await userService.update(loggedinUser)
+        await userService.addFollower(userToFollow._id, { _id, username, imgUrl, fullname })
         dispatch({ type: 'UPDATE_USER', user })
     }
 }
