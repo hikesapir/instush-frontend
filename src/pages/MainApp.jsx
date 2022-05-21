@@ -3,9 +3,7 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 import { PostList } from '../cmps/PostList'
 import { SideBar } from '../cmps/SideBar';
 import { StoryList } from '../cmps/StoryList';
-import { loadPosts } from '../store/actions/postActions';
 import { loadStories } from '../store/actions/srotyActions';
-import { loadLoggedinUser } from '../store/actions/userActions';
 
 // class _MainApp extends Component {
 export const MainApp = () => {

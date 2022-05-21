@@ -14,7 +14,6 @@ export const PostActions = ({ post, user }) => {
 
     const dispatch = useDispatch()
     const [isModalOpen, setIsModalOpen] = useState(false)
-    console.log(isModalOpen);
 
     const { likedBy, _id } = post
 

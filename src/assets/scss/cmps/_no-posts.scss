@@ -1,0 +1,11 @@
+.no-posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    font-size: rem(28px);
+    span{
+        margin-bottom: 32px;
+    }
+}
