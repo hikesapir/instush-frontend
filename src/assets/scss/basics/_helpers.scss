@@ -144,3 +144,30 @@
 .subtxt{
     color: $subtxt;
 }
+
+.btn-primary{
+    background-color: $blue;
+    color: $white;
+    border: 0;
+}
+
+.img-small{
+        height: 32px;
+        width: 32px;
+        border: 1px solid $white;
+        border-radius: 50%;
+        // object-fit: contain;
+}
+.img-medium{
+        height: 45px;
+        width: 45px;
+        border: 1px solid $white;
+        border-radius: 50%;
+        // object-fit: contain;
+}
+.img-larg{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid $white;
+}

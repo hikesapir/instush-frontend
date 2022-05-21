@@ -5,6 +5,7 @@ import { SideBar } from '../cmps/SideBar';
 import { StoryList } from '../cmps/StoryList';
 import { loadPosts } from '../store/actions/postActions';
 import { loadStories } from '../store/actions/srotyActions';
+import { loadLoggedinUser } from '../store/actions/userActions';
 
 // class _MainApp extends Component {
 export const MainApp = () => {
@@ -16,18 +17,13 @@ export const MainApp = () => {
         }
     }, [])
 
+
     const { stories } = useSelector(state => state.storyModule)
     const { posts } = useSelector(state => state.postModule)
     const { loggedinUser } = useSelector(state => state.userModule)
+  
+    if (!loggedinUser) return <div>Loading......</div>
 
-    if (!loggedinUser) return <div>Loading...</div>
-// console.log(loggedinUser);
-//     const user = {
-//         _id: loggedinUser._id,
-//         username: loggedinUser.username,
-//         imgUrl: loggedinUser.imgUrl,
-//         savedPostIds: loggedinUser.savedUserIds
-//     }
     return (
         <section className='main-app'>
             <section className='main-content'>

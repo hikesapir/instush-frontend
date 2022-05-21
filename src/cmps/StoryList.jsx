@@ -8,7 +8,7 @@ export function StoryList({ stories }) {
                 return (
                     <section className='story-perview' key={story._id}>
                         <div className='is-shown-border'>
-                        <img src={story.by.imgUrl} alt="" />
+                        <img className='img-larg' src={story.by.imgUrl} alt="" />
                         </div>
                         <span>{story.by.username}</span>
                     </section>

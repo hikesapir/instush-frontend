@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { likeClicked } from '../store/actions/postActions';
 import { ReactComponent as CommentIcon } from '../assets/icons/comment-icon.svg';
@@ -8,11 +8,15 @@ import { ReactComponent as LikeIcon } from '../assets/icons/like-icon.svg';
 import { ReactComponent as BookmarkIcon } from '../assets/icons/bookmark-icon.svg';
 import { ReactComponent as FullBookmarkIcon } from '../assets/icons/full-bookmark-icon.svg';
 import { savedPost } from '../store/actions/userActions';
+import { LikeModal } from './LikeModal';
 
 export const PostActions = ({ post, user }) => {
 
     const dispatch = useDispatch()
-    const {likedBy,_id}=post
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    console.log(isModalOpen);
+
+    const { likedBy, _id } = post
 
     const focusComment = () => {
         document.getElementById("input-comment" + _id).focus()
@@ -23,6 +27,9 @@ export const PostActions = ({ post, user }) => {
     }
     const onBookmarkBtn = async (user, _id) => {
         dispatch(savedPost(user, _id))
+    }
+    const openModal = async () => {
+        setIsModalOpen(prevIsModalOpen => !prevIsModalOpen)
     }
 
 
@@ -39,7 +46,8 @@ export const PostActions = ({ post, user }) => {
                 <span className="bookmark-icon pointer" onClick={() => onBookmarkBtn(user, _id)}>{bookmarkIcon}</span>
 
             </div>
-            <h1>{likedBy.length} {likedBy.length > 1 ? 'likes' : 'like'}</h1>
+            <h1 className='poniter' onClick={openModal}>{likedBy.length} {likedBy.length > 1 ? 'likes' : 'like'}</h1>
+            {isModalOpen ? <LikeModal userList={likedBy} loggedinUser={user} closeModal={openModal}> </LikeModal> : <></>}
         </section>
     )
 }
