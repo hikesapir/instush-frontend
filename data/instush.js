@@ -239,7 +239,27 @@ const posts = [
       }
     ],
     "tags": ["fun", "kids"]
-  }
+  },
+  {
+    "_id": "p106",
+    "txt": "Good vecation",
+    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1647806302/samples/landscapes/beach-boat.jpg", //Can be an array if decide to support multiple imgs
+    "createdAt": 1653154439403,
+    "by": {
+      "_id": "u102",
+      "username": "Ulash",
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+      "fullname": "Ulash Ulashi"
+    },
+    "loc": {
+      "lat": 11.11,
+      "lng": 22.22,
+      "name": "Thailand"
+    },
+    "comments": [],
+    "likedBy": [],
+    "tags": []
+  },
 ]
 
 const users = [

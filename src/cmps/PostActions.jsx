@@ -45,7 +45,7 @@ export const PostActions = ({ post, user }) => {
                 <span className="bookmark-icon pointer" onClick={() => onBookmarkBtn(user, _id)}>{bookmarkIcon}</span>
 
             </div>
-            <h1 className='poniter' onClick={openModal}>{likedBy.length} {likedBy.length > 1 ? 'likes' : 'like'}</h1>
+            <h1 className='poniter' onClick={openModal}>{likedBy.length} {likedBy.length !== 1 ? 'likes' : 'like'}</h1>
             {isModalOpen ? <LikeModal userList={likedBy} loggedinUser={user} closeModal={openModal}> </LikeModal> : <></>}
         </section>
     )

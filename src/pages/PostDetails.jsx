@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postService } from '../services/postService';
 import { AddComment } from '../cmps/AddComment';
 import { PostActions } from '../cmps/PostActions';
+import { likeClicked } from '../store/actions/postActions';
 
 
 
 export const PostDetails = (props) => {
+    const dispatch = useDispatch()
     const params = useParams()
     const [post, setPost] = useState(null)
     const { loggedinUser } = useSelector(state => state.userModule)
@@ -27,6 +29,10 @@ export const PostDetails = (props) => {
         setPost(post)
     }
 
+    const onClickLikeBtn = async () => {
+        dispatch(likeClicked(post, loggedinUser))
+    }
+
     if (!post || !loggedinUser) return <div>Loading...</div>
     const { by, txt, likedBy, imgUrl, comments, createdAt, loc } = post
     const user = {
@@ -38,7 +44,7 @@ export const PostDetails = (props) => {
     return (
         <section className='post-details main-layout'>
             <div className='img-container'>
-                <img src={imgUrl} alt="" />
+                <img className="pointer" onDoubleClick={onClickLikeBtn} src={imgUrl} alt="" />
             </div>
             <div className='info'>
                 <header>

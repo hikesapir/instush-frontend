@@ -22,6 +22,18 @@ export const UserFeed = () => {
         }
     }, [params.userId])
 
+
+    console.log(loggedinUser);
+
+    useEffect(() => {
+        console.log('i feel it');
+        dispatch(loadCurrnUser(params.userId))
+    
+    }, [loggedinUser?.following.length])
+
+   
+
+
     const follow = async (loggedinUser, userToFollow) => {
         dispatch(startFollow(loggedinUser, userToFollow))
     }
@@ -34,8 +46,6 @@ export const UserFeed = () => {
     var posts = useSelector(state => state.postModule.posts)
 
     if (!currUser) return <div>Loading...</div>
-    console.log(currUser.following);
-    console.log(loggedinUser._id , currUser._id);
 
     // if (!currUser || !posts) return <div>Loading...</div>
     posts = posts.filter(post => post.by._id === currUser._id)

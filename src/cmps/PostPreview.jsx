@@ -3,14 +3,21 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { DateToDisplay } from "./DateToDisplay";
 import { AddComment } from "./AddComment";
 import { PostActions } from "./PostActions";
+import { useDispatch } from "react-redux";
+import { likeClicked } from "../store/actions/postActions";
 
 export const PostPreview = ({ post, user }) => {
+  const dispatch = useDispatch()
 
   const { by, txt, imgUrl, comments, createdAt, loc } = post
   const history = useHistory()
   const goToProfile = () => {
     history.push(`/feed/${by._id}`)
   }
+
+  const onClickLikeBtn = async () => {
+    dispatch(likeClicked(post, user))
+}
 
   return (
     <section className="post-preview">
@@ -21,12 +28,12 @@ export const PostPreview = ({ post, user }) => {
           <p>{loc.name}</p>
         </div>
       </header>
-      <img src={imgUrl} alt="" />
+      <img className="pointer" onDoubleClick={onClickLikeBtn} src={imgUrl} alt="" />
       <PostActions post={post} user={user} />
       <footer>
         <div className="comments">
           <p><span className="bold">{by.username}</span> {txt}</p>
-          {comments.length > 1 ? <p>View all {comments.length} comments</p> : <p>View {comments.length} comment</p>}
+          {comments.length !== 1 ? <p>View all {comments.length} comments</p> : <p>View {comments.length} comment</p>}
         </div>
         <DateToDisplay createdAt={createdAt}></DateToDisplay>
       </footer>

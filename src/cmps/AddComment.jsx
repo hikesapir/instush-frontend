@@ -16,14 +16,14 @@ export const AddComment = ({ post, user }) => {
     const onPostComment = async (ev) => {
         ev.preventDefault()
         console.log(ev);
-        if (ev.key === 'Enter' && !ev.shiftKey) {
+        // if (ev.key === 'Enter' && !ev.shiftKey) {
             dispatch(addComment(post, comment))
             setComment({
                 txt: '',
                 by: user,
                 likedBy: []
             })
-        }
+        // }
 
     }
     return (
