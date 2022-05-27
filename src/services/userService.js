@@ -260,7 +260,45 @@ async function _createUsers() {
           ],
           "savedPostIds": ['p105', 'p102'],
           "stories": []
-        }
+        },
+        {
+          "_id": "u105",
+          "username": "redFox",
+          "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653645729/instush/muql0fkpkczxpn98ivvo.jpg",
+          "fullname": "Ginnifer Goodwin",
+          "password": "123",
+          "createdAt": 1653645268744,
+          "following": [
+            {
+              "_id": "u101",
+              "username": "Muko",
+              "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+              "fullname": "Muki Muka",
+            },
+            {
+              "_id": "u103",
+              "username": "guest",
+              "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+              "fullname": "ghost guest",
+            }
+          ],
+          "followers": [
+            {
+              "_id": "u101",
+              "username": "Muko",
+              "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+              "fullname": "Muki Muka",
+            },
+            {
+              "_id": "u103",
+              "username": "guest",
+              "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+              "fullname": "ghost guest",
+            }
+          ],
+          "savedPostIds": [],
+          "stories": []
+        },
       ]
       return storageService.postMany(USER_KEY, users)
     } else return users

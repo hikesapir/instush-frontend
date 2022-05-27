@@ -260,6 +260,26 @@ const posts = [
     "likedBy": [],
     "tags": []
   },
+  {
+    "_id": "p107",
+    "txt": "Diner🥂",
+    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653645078/instush/tbpchi6bsfqtieogksd5.jpg", //Can be an array if decide to support multiple imgs
+    "createdAt": 1653645372220,
+    "by": {
+      "_id": "u105",
+      "username": "redFox",
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653645729/instush/muql0fkpkczxpn98ivvo.jpg",
+      "fullname": "Ginnifer Goodwin"
+    },
+    "loc": {
+      "lat": 11.11,
+      "lng": 22.22,
+      "name": "Party"
+    },
+    "comments": [],
+    "likedBy": [],
+    "tags": []
+  },
 ]
 
 const users = [
@@ -401,6 +421,44 @@ const users = [
       }
     ],
     "savedPostIds": ['p105', 'p102'],
+    "stories": []
+  },
+  {
+    "_id": "u105",
+    "username": "redFox",
+    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653645729/instush/muql0fkpkczxpn98ivvo.jpg",
+    "fullname": "Ginnifer Goodwin",
+    "password": "123",
+    "createdAt": 1653645268744,
+    "following": [
+      {
+        "_id": "u101",
+        "username": "Muko",
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
+      },
+      {
+        "_id": "u103",
+        "username": "guest",
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+        "fullname": "ghost guest",
+      }
+    ],
+    "followers": [
+      {
+        "_id": "u101",
+        "username": "Muko",
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
+      },
+      {
+        "_id": "u103",
+        "username": "guest",
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+        "fullname": "ghost guest",
+      }
+    ],
+    "savedPostIds": [],
     "stories": []
   },
 ]

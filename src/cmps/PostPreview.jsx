@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { DateToDisplay } from "./DateToDisplay";
-import { AddComment } from "./AddComment";
-import { PostActions } from "./PostActions";
+import { DateToDisplay } from "./post/DateToDisplay";
+import { AddComment } from "./post/AddComment";
+import { PostActions } from "./post/PostActions";
 import { useDispatch } from "react-redux";
 import { likeClicked } from "../store/actions/postActions";
 
@@ -17,7 +17,7 @@ export const PostPreview = ({ post, user }) => {
 
   const onClickLikeBtn = async () => {
     dispatch(likeClicked(post, user))
-}
+  }
 
   return (
     <section className="post-preview">

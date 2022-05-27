@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { likeClicked } from '../store/actions/postActions';
-import { ReactComponent as CommentIcon } from '../assets/icons/comment-icon.svg';
-import { ReactComponent as ShareIcon } from '../assets/icons/paper-plane-icon.svg';
-import { ReactComponent as UnlikeIcon } from '../assets/icons/unlike-icon.svg';
-import { ReactComponent as LikeIcon } from '../assets/icons/like-icon.svg';
-import { ReactComponent as BookmarkIcon } from '../assets/icons/bookmark-icon.svg';
-import { ReactComponent as FullBookmarkIcon } from '../assets/icons/full-bookmark-icon.svg';
-import { savedPost } from '../store/actions/userActions';
-import { LikeModal } from './LikeModal';
+import { likeClicked } from '../../store/actions/postActions';
+import { ReactComponent as CommentIcon } from '../../assets/icons/comment-icon.svg';
+import { ReactComponent as ShareIcon } from '../../assets/icons/paper-plane-icon.svg';
+import { ReactComponent as UnlikeIcon } from '../../assets/icons/unlike-icon.svg';
+import { ReactComponent as LikeIcon } from '../../assets/icons/like-icon.svg';
+import { ReactComponent as BookmarkIcon } from '../../assets/icons/bookmark-icon.svg';
+import { ReactComponent as FullBookmarkIcon } from '../../assets/icons/full-bookmark-icon.svg';
+import { savedPost } from '../../store/actions/userActions';
+import { LikeModal } from '../LikeModal';
 
 export const PostActions = ({ post, user }) => {
 
@@ -46,7 +46,7 @@ export const PostActions = ({ post, user }) => {
 
             </div>
             <h1 className='poniter' onClick={openModal}>{likedBy.length} {likedBy.length !== 1 ? 'likes' : 'like'}</h1>
-            {isModalOpen ? <LikeModal userList={likedBy} loggedinUser={user} closeModal={openModal}> </LikeModal> : <></>}
+            {isModalOpen ? <LikeModal userList={likedBy} loggedinUser={user} closeModal={openModal} /> : <></>}
         </section>
     )
 }
