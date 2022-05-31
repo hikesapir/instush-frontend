@@ -23,7 +23,6 @@ export const UserFeed = () => {
     }, [params.userId])
 
 
-    console.log(loggedinUser);
 
     useEffect(() => {
         console.log('i feel it');

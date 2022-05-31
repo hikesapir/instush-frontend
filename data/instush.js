@@ -280,6 +280,31 @@ const posts = [
     "likedBy": [],
     "tags": []
   },
+  {
+    "_id": "p108",
+    "txt": "The Edge",
+    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653651009/instush/uv8ngwoevajmlaqivcmv.jpg", //Can be an array if decide to support multiple imgs
+    "createdAt": 1653651029200,
+    "by": {
+      "_id": "u101",
+      "username": "Muko",
+      "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+      "fullname": "Muki Muka"
+    },
+    "loc": {
+      "lat": 11.11,
+      "lng": 22.22,
+      "name": "NYC"
+    },
+    "comments": [],
+    "likedBy": [{
+      "_id": "u105",
+      "username": "redFox",
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653645729/instush/muql0fkpkczxpn98ivvo.jpg",
+      "fullname": "Ginnifer Goodwin"
+    }],
+    "tags": []
+  },
 ]
 
 const users = [

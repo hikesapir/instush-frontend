@@ -33,7 +33,7 @@ export function AppHeader() {
         <section className='app-header'>
             <header className='header-content'>
                 <span className='logo pointer' onClick={goHome}>Instush</span>
-                <input type="text" />
+                <input type="text" placeholder='Search' />
                 <div className='route'>
                     <span className='pointer' onClick={goHome}><HomeIcon /></span>
                     <span><DirectIcon /></span>

@@ -8,7 +8,6 @@ export const FollowBtn = ({ loggedinUser, userToFollow }) => {
         dispatch(startFollow(loggedinUser, userToFollow))
 
     }
-    console.log(loggedinUser, userToFollow );
 
 
     return loggedinUser.followers.some(user => user._id === loggedinUser._id)
