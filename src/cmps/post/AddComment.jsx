@@ -31,7 +31,6 @@ export const AddComment = ({ post, user }) => {
     return (
         <form className="add-comment" onSubmit={onPostComment}>
             <span className="smile-icon"><SmileIcon /></span>
-            {/* <textarea placeholder="Add a comment…" autoComplete="off" autoCorrect="off" onChange={handleChange} value={comment.txt} name='txt' id={"input-comment" + post._id}></textarea> */}
             <textarea type='input' placeholder="Add a comment…" autoComplete="off" autoCorrect="off" onChange={handleChange} value={comment.txt} name='txt' id={"input-comment" + post._id} onKeyUp={onPostComment}></textarea>
             <button type='submit' disabled={!comment.txt} >Post</button>
         </form>
