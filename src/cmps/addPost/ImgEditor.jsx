@@ -7,8 +7,13 @@ export const ImgEditor = ({ image }) => {
     const [imagePos, setImagePos] = useState({ x: 0, y: 0 })
 
     useEffect(() => {
+        const size = keepImgProportion(700, 700, image.width, image.height)
+        if (imagePos.x > 0) setImagePos(prevImagePos => ({ x: 0, y: prevImagePos.y }))
+        else if (imagePos.y > 0) setImagePos(prevImagePos => ({ x: prevImagePos.x, y: 0 }))
+        else if (imagePos.x < 700 - size.width) setImagePos(prevImagePos => ({ x: 700 - size.width, y: prevImagePos.y }))
+        else if (imagePos.y < 700 - size.height) setImagePos(prevImagePos => ({ x: prevImagePos.x, y: 700 - size.height }))
         fillCanvas()
-    }, [])
+    }, [imagePos])
 
     const fillCanvas = (pos = { x: 0, y: 0 }) => {
         const canvas = canvasRef.current
@@ -41,12 +46,10 @@ export const ImgEditor = ({ image }) => {
             x: clickPos.x - e.nativeEvent.offsetX,
             y: clickPos.y - e.nativeEvent.offsetY
         }
-        console.log(pos);
         fillCanvas(pos)
     }
 
     const handleMouseDown = (e) => {
-        console.log('imagePos', imagePos);
         setDraggable(true)
         setClickPos({
             x: e.nativeEvent.offsetX,
@@ -56,17 +59,10 @@ export const ImgEditor = ({ image }) => {
 
     const handleMouseUp = (e) => {
         setDraggable(false)
-        const x = clickPos.x - e.nativeEvent.offsetX
-        const y = clickPos.y - e.nativeEvent.offsetY
+        let x = clickPos.x - e.nativeEvent.offsetX
+        let y = clickPos.y - e.nativeEvent.offsetY
         if (!x && !y) return
-        setImagePos(prevImagePos => {
-            return {
-                x: prevImagePos.x - x,
-                y: prevImagePos.y - y
-            }
-
-        })
-
+        setImagePos(prevImagePos => ({ x: prevImagePos.x - x, y: prevImagePos.y - y }))
     }
 
     return (
