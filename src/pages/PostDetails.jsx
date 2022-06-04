@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { postService } from '../services/postService';
-import { AddComment } from '../cmps/post/AddComment';
-import { PostActions } from '../cmps/post/PostActions';
+import { AddComment } from '../cmps/postPreview/AddComment';
+import { PostActions } from '../cmps/postPreview/PostActions';
 import { likeClicked } from '../store/actions/postActions';
 
 
