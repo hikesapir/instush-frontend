@@ -5,7 +5,8 @@ import { storageService } from "./asyncStorageService"
 export const postService = {
   query,
   updatePost,
-  getById
+  getById,
+  savePost
 }
 const POST_KEY = 'postDB'
 const gPosts = _createPosts()

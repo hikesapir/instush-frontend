@@ -7,6 +7,25 @@ export function loadPosts() {
     }
 }
 
+export function addPost(post) {
+    return async (dispatch) => {
+        var newPost = {
+            "txt": post.txt,
+            "imgUrl": post.imgUrl, //Can be an array if decide to support multiple imgs
+            "createdAt": Date.now(),
+            "by": post.by,
+            "loc": {
+                "name": post.loca,
+            },
+            "comments": [],
+            "likedBy": [],
+            "tags": []
+        }
+        newPost = await postService.savePost(newPost)
+        dispatch({ type: 'ADD_POSTS', post:newPost })
+    }
+}
+
 export function likeClicked(post, user) {
     return async (dispatch) => {
         try {

@@ -2,6 +2,7 @@ import { PostPreview } from "./postPreview/PostPreview"
 
 export function PostList({ posts, user }) {
   if (!posts || !user) return <div>Loading...</div>
+  console.log(posts);
   posts.sort((a, b) => b.createdAt - a.createdAt)
   return (
     <section className="post-list">

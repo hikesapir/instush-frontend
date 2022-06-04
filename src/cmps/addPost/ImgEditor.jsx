@@ -1,6 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { ReactComponent as CloseIcon } from '../../assets/icons/close-icon.svg'
+import { ReactComponent as BackIcon } from '../../assets/icons/back-icon.svg';
+import { ReactComponent as LocaIcon } from '../../assets/icons/location-icon.svg';
+import { useForm } from '../../hooks/useForm';
+import { uploadImg } from '../../services/img-upload.service';
+import { addPost } from '../../store/actions/postActions';
 
-export const ImgEditor = ({ image }) => {
+
+export const ImgEditor = ({ image, setImage, closeModal }) => {
+    const dispatch = useDispatch()
+    const { loggedinUser } = useSelector(state => state.userModule)
+    const [post, handleChange, setpost] = useForm({
+        loca: '',
+        txt: ''
+    })
+
     const canvasRef = useRef(null)
     const [draggable, setDraggable] = useState(false)
     const [clickPos, setClickPos] = useState(null)
@@ -65,12 +80,65 @@ export const ImgEditor = ({ image }) => {
         setImagePos(prevImagePos => ({ x: prevImagePos.x - x, y: prevImagePos.y - y }))
     }
 
+    const postImg = async () => {
+        const canvas = canvasRef.current
+        var imageData = await uploadImg(canvas.toDataURL('image/jpeg'));
+        const newPost = {
+            ...post,
+            imgUrl: imageData.url,
+            by: {
+                _id: loggedinUser._id,
+                username: loggedinUser.username,
+                imgUrl: loggedinUser.imgUrl,
+                fullname: loggedinUser.fullname
+            }
+        }
+        console.log(newPost);
+        dispatch(addPost(newPost))
+        closeModal()
+    }
+
     return (
-        <div className='canvas-container'>
-            <canvas ref={canvasRef} width="700" height="700"
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleDrag}
-                onMouseUp={handleMouseUp} ></canvas>
-        </div>
+        <section className='add-post'>
+            <span className='close-icon pointer' onClick={closeModal}>
+                <CloseIcon />
+            </span>
+            <div className='modal'>
+                <header className='bold'>
+                    <div className='modal-title flex'>
+                        <button onClick={() => setImage(null)}>
+                            <BackIcon />
+                        </button>
+                        <h1 className='bold' >Corp</h1>
+                        <button className='bold' onClick={postImg}>Next</button>
+                    </div>
+                </header>
+                <section className='content'>
+                    <section className='img-editor'>
+                        <div className='canvas-container'>
+                            <canvas ref={canvasRef} width="700" height="700"
+                                onMouseDown={handleMouseDown}
+                                onMouseMove={handleDrag}
+                                onMouseUp={handleMouseUp} ></canvas>
+                        </div>
+                        <div className="img-details">
+                            <header>
+                                <div className='user-preview'>
+                                    <img className='img-medium' src={loggedinUser.imgUrl} alt="" />
+                                    <div>
+                                        <p className='bold'>{loggedinUser.username}</p>
+                                    </div>
+                                </div>
+                            </header>
+                            <textarea type='input' placeholder="Write your caption..." autoComplete="off" autoCorrect="off" name='txt' value={post.txt} onChange={handleChange}></textarea>
+                            <label >
+                                <input type="text" placeholder="Add location" value={post.loca} onChange={handleChange} name='loca' />
+                                <LocaIcon />
+                            </label>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </section>
     )
 }
