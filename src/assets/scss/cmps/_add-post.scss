@@ -32,7 +32,7 @@
         transform: translate(-50%, -50%);
         background-color: white;
         border-radius: 13px;
-        width: 700px;
+        min-width: 700px;
         min-height: 80vh;
         max-height: 631px;
 
@@ -43,9 +43,20 @@
             border-bottom: 1px solid $main-border ;
 
             div {
+                display: flex;
+                align-items: center;
                 margin: auto;
-                font-size: rem(24px);
+                font-size: 16px;
                 text-align: center;
+                justify-content: space-between;
+
+                button {
+                    color: $blue;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                }
             }
         }
 
@@ -53,17 +64,36 @@
             width: 100%;
             height: 100%;
 
-            .canvas-container {
-                position: absolute;
-                top: 47px;
+            .img-editor {
                 display: flex;
-                justify-content: center;
-                align-items: center;
 
-                canvas {
-                    border-radius: 0 0 13px 13px;
+                .img-details {
+                    width: 340px;
+                    height: 100%;
+                    textarea {
+                        height: 170px;
+                        resize: none;
+                        width: 340px;
+                        border: 0;
+                        outline: none;
+                        font-family: inherit;
+                        padding: 0 16px;
+                        font-size: 16px;
+                    }
+
+                }
+
+                .canvas-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    canvas {
+                        border-radius: 0 0 13px 13px;
+                    }
                 }
             }
+
 
             main {
                 height: calc(80vh - 47px);
