@@ -7,7 +7,7 @@ import { ReactComponent as NewPostIcon } from '../assets/icons/new-post-icon.svg
 import { ReactComponent as CompassIcon } from '../assets/icons/compass-icon.svg';
 
 import { ReactComponent as LikeIcon } from '../assets/icons/like-icon.svg';
-import { AddPost } from './AddPost';
+import { AddPost } from './addPost/AddPost';
 
 
 export function AppHeader() {

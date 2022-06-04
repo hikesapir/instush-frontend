@@ -1,4 +1,4 @@
-import { PostPreview } from "./PostPreview"
+import { PostPreview } from "./postPreview/PostPreview"
 
 export function PostList({ posts, user }) {
   if (!posts || !user) return <div>Loading...</div>

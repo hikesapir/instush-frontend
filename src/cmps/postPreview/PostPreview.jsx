@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { DateToDisplay } from "./post/DateToDisplay";
-import { AddComment } from "./post/AddComment";
-import { PostActions } from "./post/PostActions";
+import { DateToDisplay } from "./DateToDisplay";
+import { AddComment } from "./AddComment";
+import { PostActions } from "./PostActions";
 import { useDispatch } from "react-redux";
-import { likeClicked } from "../store/actions/postActions";
+import { likeClicked } from "../../store/actions/postActions";
 
 export const PostPreview = ({ post, user }) => {
   const dispatch = useDispatch()
