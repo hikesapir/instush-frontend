@@ -1,5 +1,6 @@
 import { utilService } from "./util-service"
 import { storageService } from "./asyncStorageService"
+import { httpService } from './http.service'
 //CRUDL CREAT READ UPDATE DELETE LIST
 
 export const postService = {
@@ -9,20 +10,25 @@ export const postService = {
   savePost
 }
 const POST_KEY = 'postDB'
+const POST_URL = 'post/'
 const gPosts = _createPosts()
 
 
 async function query(filterBy) {
-  const posts = await gPosts
+  // const posts = await gPosts
+  const posts = await httpService.get(POST_URL, { params: filterBy })
+
   return posts
 }
 
 async function savePost(post) {
   try {
     if (post._id) {
-      var res = await storageService.put(POST_KEY, post)
+      // var res = await storageService.put(POST_KEY, post)
+      var res = await httpService.put(POST_URL + post._id, post)
     } else {
-      var res = await storageService.post(POST_KEY, post)
+      // const res = await storageService.post(POST_KEY, post)
+      var res = await httpService.post(POST_URL, post)
     }
     return res
   } catch (err) {
@@ -49,8 +55,9 @@ async function updatePost(caseType, post, data) {
 }
 
 async function getById(id) {
-  if (!gPosts.length) _createPosts()
-  const post = await storageService.getById(POST_KEY, id)
+  // if (!gPosts.length) _createPosts()
+  // const post = await storageService.getById(POST_KEY, id)
+  const post = await httpService.get(POST_URL + id)
   return post;
 }
 
