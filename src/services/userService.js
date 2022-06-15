@@ -14,6 +14,7 @@ export const userService = {
   // remove,
   update,
   addFollower,
+  query,
 }
 
 // Debug technique
@@ -100,7 +101,11 @@ async function addFollower(userId, miniUser) {
   return user;
 }
 
-
+async function query(filterBy) {
+  var users = await gUsers
+  users = users.filter(user => user.username.toLowerCase().includes(filterBy.txt.toLowerCase()))
+  return users
+}
 
 
 

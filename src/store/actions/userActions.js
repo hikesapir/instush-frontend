@@ -33,3 +33,17 @@ export function startFollow(loggedinUser, userToFollow) {
         dispatch({ type: 'UPDATE_USER', user })
     }
 }
+
+export function setFilterBy(filterBy) {
+    return async (dispatch) => {
+        dispatch({ type: 'SET_FILTER_BY', filterBy })
+    }
+}
+
+export function loadUsers() {
+    return async (dispatch, getState) => {
+        const { filterBy } = getState().userModule
+        const users =  userService.query(filterBy)
+            dispatch({ type: 'LOAD_USERS', users })
+    }
+}

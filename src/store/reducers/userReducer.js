@@ -1,6 +1,8 @@
 const INITIAL_STATE = {
     loggedinUser: null,
-    currUser: null
+    currUser: null,
+    filterBy: null,
+    users: null
 }
 
 export function userReducer(state = INITIAL_STATE, action) {
@@ -21,7 +23,16 @@ export function userReducer(state = INITIAL_STATE, action) {
                 ...state,
                 loggedinUser: action.user
             }
-
+        case 'SET_FILTER_BY':
+            return {
+                ...state,
+                filterBy: { ...action.filterBy }
+            }
+        case 'LOAD_USERS':
+            return {
+                ...state,
+                users: action.users
+            }
 
         default:
             return state;

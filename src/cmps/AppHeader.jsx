@@ -8,6 +8,7 @@ import { ReactComponent as CompassIcon } from '../assets/icons/compass-icon.svg'
 
 import { ReactComponent as LikeIcon } from '../assets/icons/like-icon.svg';
 import { AddPost } from './addPost/AddPost';
+import { AppFilter } from './AppFilter';
 
 
 export function AppHeader() {
@@ -33,7 +34,7 @@ export function AppHeader() {
         <section className='app-header'>
             <header className='header-content'>
                 <span className='logo pointer' onClick={goHome}>Instush</span>
-                <input type="text" placeholder='Search' />
+                <AppFilter></AppFilter>
                 <div className='route'>
                     <span className='pointer' onClick={goHome}><HomeIcon /></span>
                     <span><DirectIcon /></span>
