@@ -25,7 +25,6 @@ export const UserFeed = () => {
 
 
     useEffect(() => {
-        console.log('i feel it');
         dispatch(loadCurrnUser(params.userId))
     
     }, [loggedinUser?.following.length])

@@ -29,7 +29,7 @@ export const MainApp = () => {
                     <StoryList stories={stories}></StoryList>
                     <PostList posts={posts} user={loggedinUser}></PostList>
                 </main>
-                <SideBar user={loggedinUser}></SideBar>
+                <SideBar loggedinUser={loggedinUser}></SideBar>
             </section>
         </section >
     )

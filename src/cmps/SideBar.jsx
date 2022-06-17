@@ -1,23 +1,61 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { loadUsers } from '../store/actions/userActions'
+import { FollowBtn } from './FollowBtn'
+import { UserPreview } from './UserPreview'
 
-export function SideBar({ user }) {
+export function SideBar({ loggedinUser }) {
     const history = useHistory()
-    const goTOProfile = () => {
-        history.push(`/feed/${user._id}`)
-    }
-    if (!user) return <div>Loading...</div>
+    const dispatch = useDispatch()
 
+
+    useEffect(() => {
+        dispatch(loadUsers())
+
+
+    }, [])
+    let { users } = useSelector(state => state.userModule)
+
+    const goTOProfile = () => {
+        history.push(`/feed/${loggedinUser._id}`)
+    }
+
+    if (!loggedinUser || !users) return <div>Loading...</div>
+    users = users.filter(user => !loggedinUser.following.some(userFollew => userFollew._id === user._id) && loggedinUser._id !== user._id).slice(0, 5)
+    const emptyContent = []
+    for (let i = 0; i < 4 - users.length; i++) {
+        emptyContent.push(<li className='empty'>
+            <div className="img"></div>
+            <div className='line-container'>
+                <div className="long-line"></div>
+                <div className="short-line"></div>
+            </div>
+        </li>)
+    }
     return (
         <section className='side-bar'>
             <header>
-                <img className='pointer img-larg' onClick={goTOProfile} src={user.imgUrl} alt="" />
-                <span>{user.username}</span>
+                <img className='pointer img-larg' onClick={goTOProfile} src={loggedinUser.imgUrl} alt="" />
+                <span className='bold'>{loggedinUser.username}</span>
             </header>
-            <h1>Suggestions For You</h1>
-            <img className='img-small' src="https://res.cloudinary.com/mistertoysss/image/upload/v1648414113/funday%20must/photo-1568602471122-7832951cc4c5_fbs2vc.jpg" alt="" />
-            <img className='img-small' src="https://res.cloudinary.com/mistertoysss/image/upload/v1648414292/funday%20must/photo-1551836022-deb4988cc6c0_t4if9h.jpg" alt="" />
-            <img className='img-small' src="https://res.cloudinary.com/mistertoysss/image/upload/v1648414297/funday%20must/photo-1472099645785-5658abf4ff4e_lhdb3o.jpg" alt="" />
+            <div className="content">
+                <h1 className='title'>Suggestions For You</h1>
+                <ul>
+                    {users?.map(user => {
+                        return (
+                            <li key={user._id}>
+                                <UserPreview user={user} />
+                                <FollowBtn loggedinUser={loggedinUser} userToFollow={user} />
+                            </li>
+                        )
+                    })
+                    }
+                    {
+                        (users.length < 4) ? emptyContent : <></>
+                    }
+                </ul>
+            </div>
         </section>
     )
 }

@@ -8,7 +8,6 @@ export const FilterDropdwon = ({ users, isOpen, setIsOpen }) => {
 
   useEffect(() => {
     document.addEventListener("mousedown", (ev) => {
-      console.log(ev.path.includes(dropdwon.current));
       if (!ev.path.includes(dropdwon.current)) {
         setIsOpen(false)
       }

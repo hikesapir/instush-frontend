@@ -71,19 +71,9 @@
                     width: 340px;
                     height: 100%;
 
-                    .user-preview {
-                        display: flex;
-                        align-items: center;
-                        font-size: rem(16px);
-
-                        p {
-                            margin-inline-start: 12px;
-                        }
-                    }
-
                     label {
-                        display: flex; 
-                        padding-right: rem(16px) ;
+                        display: flex;
+                        padding-right: rem(16px);
                         border-bottom: 1px solid $main-border;
                         align-items: center;
                     }

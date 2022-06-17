@@ -6,6 +6,7 @@ import { ReactComponent as LocaIcon } from '../../assets/icons/location-icon.svg
 import { useForm } from '../../hooks/useForm';
 import { uploadImg } from '../../services/img-upload.service';
 import { addPost } from '../../store/actions/postActions';
+import { UserPreview } from '../UserPreview';
 
 
 export const ImgEditor = ({ image, setImage, closeModal }) => {
@@ -123,12 +124,7 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
                         </div>
                         <div className="img-details">
                             <header>
-                                <div className='user-preview'>
-                                    <img className='img-medium' src={loggedinUser.imgUrl} alt="" />
-                                    <div>
-                                        <p className='bold'>{loggedinUser.username}</p>
-                                    </div>
-                                </div>
+                                <UserPreview user={loggedinUser}></UserPreview>
                             </header>
                             <textarea type='input' placeholder="Write your caption..." autoComplete="off" autoCorrect="off" name='txt' value={post.txt} onChange={handleChange}></textarea>
                             <label >
