@@ -43,7 +43,7 @@ export function setFilterBy(filterBy) {
 export function loadUsers() {
     return async (dispatch, getState) => {
         const { filterBy } = getState().userModule
-        const users =  userService.query(filterBy)
-            dispatch({ type: 'LOAD_USERS', users })
+        const users = await userService.query(filterBy)
+        dispatch({ type: 'LOAD_USERS', users })
     }
 }

@@ -1,0 +1,50 @@
+.filter-dropdwon {
+    position: relative;
+    top: 12px;
+    width: 323px;
+
+    .dropdwon {
+        position: absolute;
+        z-index: 2;
+        border-radius: 6px;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
+        background-color: rgb(255, 255, 255);
+        opacity: 1;
+        transform: translate(0);
+        transition: opacity 75ms linear, transform 38ms ease-out;
+        transform-origin: top center;
+
+        .square {
+            height: 14px;
+            width: 14px;
+            background-color: $white;
+            transform: rotate(45deg);
+            position: absolute;
+            box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
+            left: 153px;
+            top: -6px;
+        }
+
+        .content {
+            width: 323px;
+            height: 330px;
+            background: $white;
+            border-radius: 6px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+
+            ul {
+                padding-top: 12px;
+
+                li {
+                    padding: 8px 16px;
+
+                    &:hover {
+                        background-color: #fafafa;
+                    }
+                }
+            }
+        }
+    }
+}
