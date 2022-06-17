@@ -14,6 +14,11 @@
         transition: opacity 75ms linear, transform 38ms ease-out;
         transform-origin: top center;
 
+        &.hide {
+            opacity: 0;
+            transform: translateY(-50);
+        }
+
         .square {
             height: 14px;
             width: 14px;

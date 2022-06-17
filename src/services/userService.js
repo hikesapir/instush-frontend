@@ -304,6 +304,63 @@ async function _createUsers() {
           "savedPostIds": [],
           "stories": []
         },
+        {
+          "_id": "u106",
+          "username": "clifford",
+          "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1655479704/instush/wvv8b8vzpshtdxv75kx4.jpg",
+          "fullname": "Clifford The Dog",
+          "password": "123",
+          "createdAt": 1655479559454,
+          "following": [
+            {
+              "_id": "u101",
+              "username": "Muko",
+              "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+              "fullname": "Muki Muka",
+            },
+            {
+              "_id": "u103",
+              "username": "guest",
+              "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+              "fullname": "ghost guest",
+            }
+          ],
+          "followers": [
+            {
+              "_id": "u101",
+              "username": "Muko",
+              "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+              "fullname": "Muki Muka",
+            },
+            {
+              "_id": "u103",
+              "username": "guest",
+              "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+              "fullname": "ghost guest",
+            },
+            {
+              "_id": "u102",
+              "username": "Ulash",
+              "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+              "fullname": "Ulash Ulashi"
+            },
+            {
+              "_id": "u104",
+              "username": "Arthur_Reed",
+              "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414247/funday%20must/photo-1566492031773-4f4e44671857_pezzjc.jpg",
+              "fullname": "Arthur Reed"
+            },
+            {
+              "_id": "u105",
+              "username": "redFox",
+              "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653645729/instush/muql0fkpkczxpn98ivvo.jpg",
+              "fullname": "Ginnifer Goodwin"
+            }
+
+          ],
+          "savedPostIds": [],
+          "stories": []
+        }
       ]
       return storageService.postMany(USER_KEY, users)
     } else return users
