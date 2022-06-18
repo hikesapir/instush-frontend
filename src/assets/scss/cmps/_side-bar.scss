@@ -4,7 +4,7 @@
     position: fixed;
     right: calc(50% - 293px - 28px);
     transform: translateX(50%);
-
+    display: none;
 
     header {
         display: flex;
@@ -70,5 +70,11 @@
                 }
             }
         }
+    }
+}
+
+@media (min-width:$wide-breakpoint) {
+    .side-bar {
+        display: block;
     }
 }
