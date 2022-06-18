@@ -25,17 +25,17 @@ export const PostPreview = ({ post, user }) => {
         <img className="pointer" src={by.imgUrl} alt="" onClick={goToProfile} />
         <div>
           <h1>{by.username}</h1>
-          <p>{loc.name}</p>
+          <p className="subtxt">{loc.name}</p>
         </div>
       </header>
       <img className="pointer" onDoubleClick={onClickLikeBtn} src={imgUrl} alt="" />
       <PostActions post={post} user={user} />
       <footer>
-        <div className="comments">
-          <p><span className="bold">{by.username}</span> {txt}</p>
-          {comments.length !== 1 ? <p>View all {comments.length} comments</p> : <p>View {comments.length} comment</p>}
-        </div>
-        <DateToDisplay createdAt={createdAt}></DateToDisplay>
+        {/* <div className="comments"> */}
+        <p><span className="bold">{by.username}</span> {txt}</p>
+        <p className="subtxt">View all {comments.length} {comments.length !== 1 ? 'comments' : 'comment'} </p>
+        {/* </div> */}
+        <DateToDisplay  createdAt={createdAt} />
       </footer>
 
       <AddComment post={post} user={user}></AddComment>

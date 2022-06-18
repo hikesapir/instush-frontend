@@ -9,8 +9,7 @@ export const FollowBtn = ({ loggedinUser, userToFollow }) => {
 
     }
 
-
-    return loggedinUser.followers.some(user => user._id === loggedinUser._id)
+    return loggedinUser.following.some(user => user._id === userToFollow._id)
         ? (<button onClick={() => follow(loggedinUser, userToFollow)} className='bold'>Unfollow</button>)
         : (<button onClick={() => follow(loggedinUser, userToFollow)} className='btn-primary bold'>Follow</button>)
 }

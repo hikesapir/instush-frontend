@@ -86,7 +86,8 @@ async function getById(userId) {
 async function update(user) {
   await storageService.put(USER_KEY, user)
   // Handle case in which admin updates other user's details
-  if (getLoggedinUser()._id === user._id) storageService.user(STORAGE_KEY_LOGGEDIN_USER, user)
+  const loggedinUser =await getLoggedinUser()
+  if (loggedinUser._id === user._id)  localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user;
 }
 

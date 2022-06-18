@@ -19,6 +19,7 @@ export function userReducer(state = INITIAL_STATE, action) {
                 currUser: action.currUser
             }
         case 'UPDATE_USER':
+            console.log('up', action.user);
             return {
                 ...state,
                 loggedinUser: action.user

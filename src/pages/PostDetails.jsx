@@ -5,6 +5,7 @@ import { postService } from '../services/postService';
 import { AddComment } from '../cmps/postPreview/AddComment';
 import { PostActions } from '../cmps/postPreview/PostActions';
 import { likeClicked } from '../store/actions/postActions';
+import { CommentDate } from '../cmps/postPreview/CommentDate';
 
 
 
@@ -59,8 +60,11 @@ export const PostDetails = (props) => {
                         return (
                             <div className="comment-details" key={comment.id}>
                                 <img src={comment.by.imgUrl} alt="" />
-                                <div className='bold'>{comment.by.username}</div>
-                                <div className='comment-txt'>{comment.txt}</div>
+                                <div className='comment'>
+                                    <div ><span className='bold'>{comment.by.username}</span>
+                                     <span className='comment-txt'>{comment.txt}</span></div>
+                                    <div ><CommentDate createdAt={createdAt} /></div>
+                                </div>
                             </div>
                         )
                     })}

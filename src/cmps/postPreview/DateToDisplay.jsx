@@ -16,6 +16,6 @@ export const DateToDisplay = ({createdAt}) => {
     else if (days <= 7) dateToDisplay = days === 1 ? days + ' DAY AGO' : days + ' DAYS AGO';
 
   return (
-    <span>{dateToDisplay}</span>
+    <span className='date-to-display'>{dateToDisplay}</span>
   )
 }

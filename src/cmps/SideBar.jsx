@@ -25,7 +25,7 @@ export function SideBar({ loggedinUser }) {
     users = users.filter(user => !loggedinUser.following.some(userFollew => userFollew._id === user._id) && loggedinUser._id !== user._id).slice(0, 5)
     const emptyContent = []
     for (let i = 0; i < 4 - users.length; i++) {
-        emptyContent.push(<li className='empty'>
+        emptyContent.push(<li className='empty' key={i}>
             <div className="img"></div>
             <div className='line-container'>
                 <div className="long-line"></div>
