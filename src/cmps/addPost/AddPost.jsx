@@ -4,12 +4,24 @@ import { ReactComponent as MediaIcon } from '../../assets/icons/media-icon.svg';
 import { ImgEditor } from './ImgEditor';
 import { useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 
 
 export const AddPost = ({ closeModal }) => {
     const [image, setImage] = useState(null)
     const modalRef = useRef(null)
+
+    useOnClickOutside(modalRef, () => closeModal())
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = 'auto';
+
+        }
+    }, [])
+
 
     const handleFile = async (ev) => {
         ev.stopPropagation();
