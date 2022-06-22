@@ -3,11 +3,8 @@
     padding: 30px 20px 0 20px;
 
     header {
-        display: flex;
-        gap: 30px;
-        padding-bottom: 45px;
         border-bottom: 1px $main-border solid;
-        // align-items: center;
+
 
         img {
             height: 150px;
@@ -25,27 +22,70 @@
             }
         }
 
+        .user-details {
+            display: flex;
+            gap: 30px;
+            padding-bottom: 45px;
+        }
+
         .info {
             display: flex;
             gap: 40px;
-
         }
 
+        .info-dasktop {
+            display: none;
+        }
+
+        .info-mobile {
+            border-top: 1px solid $main-border;
+            justify-content: space-around;
+            padding: 12px 0;
+            text-align: center;
+            font-size: rem(14px);
+            color: $subtxt;
+
+
+            span {
+                color: $main-txt;
+                display: block;
+            }
+        }
+
+        @media (min-width:$tablet-breakpoint) {
+            .info-mobile {
+                display: none;
+            }
+
+            .info-dasktop {
+                display: flex;
+            }
+        }
 
     }
 
     .grid-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
+        gap: 3px;
         padding-top: 50px;
 
         .img-container {
-            width: 290px;
-            height: 290px;
-            img{
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+
+            // padding: 100%;
+            img {
                 object-fit: cover;
             }
+        }
+    }
+
+    @media (min-width:$tablet-breakpoint) {
+        .grid-container {
+            gap: 28px;
         }
     }
 }

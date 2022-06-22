@@ -26,10 +26,10 @@ export const UserFeed = () => {
 
     useEffect(() => {
         dispatch(loadCurrnUser(params.userId))
-    
+
     }, [loggedinUser?.following.length])
 
-   
+
 
 
     const follow = async (loggedinUser, userToFollow) => {
@@ -51,35 +51,44 @@ export const UserFeed = () => {
     return (
         <section className='user-feed main-layout'>
             <header>
-                <img src={currUser.imgUrl} alt="" />
-                <div >
-                    <div className='title'>{currUser.username}
+                <div className="user-details">
+                    <img src={currUser.imgUrl} alt="" />
+                    <div >
+                        <div className='title'>{currUser.username}
 
-                        <button className='bold'>{(loggedinUser._id !== currUser._id) ? 'Message' : 'Edit Profile'}</button>
-                        {
-                            (loggedinUser._id !== currUser._id) ?
-                                (currUser.followers.some(user => user._id === loggedinUser._id)
-                                    ? <button onClick={() => follow(loggedinUser, currUser)} ><UnfollowIcon /></button>
-                                    : <FollowBtn loggedinUser={loggedinUser} userToFollow={currUser} />)
-                                : <></>
-                        }
+                            <button className='bold'>{(loggedinUser._id !== currUser._id) ? 'Message' : 'Edit Profile'}</button>
+                            {
+                                (loggedinUser._id !== currUser._id) ?
+                                    (currUser.followers.some(user => user._id === loggedinUser._id)
+                                        ? <button onClick={() => follow(loggedinUser, currUser)} ><UnfollowIcon /></button>
+                                        : <FollowBtn loggedinUser={loggedinUser} userToFollow={currUser} />)
+                                    : <></>
+                            }
 
-                    </div>
-                    <div className="info">
-                        <span ><span className='bold'>{posts?.length}</span> {posts?.length !== 1 ? 'posts' : 'post'}</span>
-                        <span ><span className='bold'>{currUser.followers.length}</span> {currUser.followers.length > 1 ? 'followers' : 'follower'}</span>
-                        <span><span className='bold'>{currUser.following.length}</span> following</span>
+                        </div>
+                        <div className="info info-dasktop">
+                            <span ><span className='bold'>{posts?.length}</span> {posts?.length !== 1 ? 'posts' : 'post'}</span>
+                            <span ><span className='bold'>{currUser.followers.length}</span> {currUser.followers.length > 1 ? 'followers' : 'follower'}</span>
+                            <span><span className='bold'>{currUser.following.length}</span> following</span>
+                        </div>
                     </div>
                 </div>
+
+                <div className="info info-mobile">
+                    <div ><span className='bold'>{posts?.length}</span> {posts?.length !== 1 ? 'posts' : 'post'}</div>
+                    <div ><span className='bold'>{currUser.followers.length}</span> {currUser.followers.length > 1 ? 'followers' : 'follower'}</div>
+                    <div><span className='bold'>{currUser.following.length}</span> following</div>
+                </div>
+
             </header>
             {posts.length ?
                 <main className='grid-container'>
                     {posts.map(post => {
                         return (
-                    <div className='img-container pointer' key={post._id} onClick={() => goToPost(post._id)}>
-                        <img src={post.imgUrl} alt="" />
-                    </div>
-                    )
+                            <div className='img-container pointer' key={post._id} onClick={() => goToPost(post._id)}>
+                                <img src={post.imgUrl} alt="" />
+                            </div>
+                        )
                     })}
                 </main>
                 : <NoPost />
