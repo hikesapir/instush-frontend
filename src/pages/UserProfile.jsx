@@ -49,7 +49,7 @@ export const UserProfile = () => {
     posts = posts.filter(post => post.by._id === currUser._id)
 
     return (
-        <section className='user-feed main-layout'>
+        <section className='user-profile main-layout'>
             <header>
                 <div className="user-details">
                     <img src={currUser.imgUrl} alt="" />

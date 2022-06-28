@@ -1,6 +1,6 @@
 .main-app {
 
-    .main-content {
+    .user-feed {
         display: flex;
         gap: 28px;
         position: relative;
@@ -16,7 +16,7 @@
 
 @media (min-width:$wide-breakpoint) {
     .main-app {
-        .main-content {
+        .user-feed {
             justify-content: unset;
 
         }
@@ -24,7 +24,7 @@
 }
 @media (min-width:$tablet-breakpoint) {
     .main-app {
-        .main-content {
+        .user-feed {
             main{
                 width: 615px;
             }
