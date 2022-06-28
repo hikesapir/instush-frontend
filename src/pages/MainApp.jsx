@@ -1,36 +1,35 @@
-import React, { Component, useEffect } from 'react'
-import { connect, useDispatch, useSelector } from 'react-redux'
-import { PostList } from '../cmps/PostList'
-import { SideBar } from '../cmps/SideBar';
-import { StoryList } from '../cmps/StoryList';
-import { loadStories } from '../store/actions/srotyActions';
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { AppHeader } from '../cmps/AppHeader';
+import { loadPosts } from '../store/actions/postActions';
+import { loadLoggedinUser } from '../store/actions/userActions';
+import { PostDetails } from './PostDetails';
+import { UserFeed } from './UserFeed';
+import { UserProfile } from './UserProfile';
+
 
 // class _MainApp extends Component {
 export const MainApp = () => {
+
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(loadStories())
-        return () => {
-        }
+        dispatch(loadLoggedinUser())
+        dispatch(loadPosts())
     }, [])
 
 
-    const { stories } = useSelector(state => state.storyModule)
-    const { posts } = useSelector(state => state.postModule)
-    const { loggedinUser } = useSelector(state => state.userModule)
-  
-    if (!loggedinUser) return <div>Loading......</div>
+
 
     return (
         <section className='main-app'>
-            <section className='main-content'>
-                <main>
-                    <StoryList stories={stories}></StoryList>
-                    <PostList posts={posts} user={loggedinUser}></PostList>
-                </main>
-                <SideBar loggedinUser={loggedinUser}></SideBar>
-            </section>
+            <AppHeader></AppHeader>
+            <Switch>
+                <Route path="/post/:postId" component={PostDetails}></Route>
+                <Route path="/feed/:userId" component={UserProfile}></Route>
+                <Route path="/" component={UserFeed}></Route>
+            </Switch>
         </section >
     )
 }

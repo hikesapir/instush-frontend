@@ -22,7 +22,6 @@ export const UserFeed = () => {
     if (!loggedinUser) return <div>Loading......</div>
 
     return (
-        <section className='main-app'>
             <section className='user-feed'>
                 <main>
                     <StoryList stories={stories}></StoryList>
@@ -30,6 +29,5 @@ export const UserFeed = () => {
                 </main>
                 <SideBar loggedinUser={loggedinUser}></SideBar>
             </section>
-        </section >
     )
 }
