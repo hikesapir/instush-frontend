@@ -1,3 +1,156 @@
-.home-page{
+.homepage {
+    .content-wrapper {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
 
+        .img-container {
+            position: relative;
+            width: 380px;
+            height: 582px;
+            background-image: url('../../img/login-image-container.png');
+            background-position: -46px 0;
+            background-size: 468.32px 634.15px;
+            align-self: center;
+            flex-basis: 380.32px;
+            height: 581.15px;
+            margin-bottom: 12px;
+            margin-right: 32px;
+
+            img {
+                position: absolute;
+                top: 27px;
+                left: 113px;
+                visibility: visible;
+                opacity: 1;
+                width: 250px;
+                height: 538.84px;
+                animation-name: changeBG;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+                animation-duration: 16s;
+
+                &:nth-of-type(1) {
+                    animation-delay: 12s;
+                }
+
+                &:nth-of-type(2) {
+                    animation-delay: 8s;
+                }
+
+                &:nth-of-type(3) {
+                    animation-delay: 4s;
+                }
+
+                &:nth-of-type(4) {
+                    animation-delay: 0s;
+                }
+            }
+
+        }
+
+        .login-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            margin-top: 12px;
+            max-width: 350px;
+            flex-grow: 1;
+
+            .login {
+                background-color: $white;
+                border: 1px solid $main-border;
+                border-radius: 1px;
+                margin: 0 0 10px;
+                padding: 10px 0;
+                align-items: center;
+                width: 100%;
+
+                .logo {
+                    font-size: rem(50px);
+                    text-align: center;
+                    margin-bottom: 12px;
+                    margin-top: 16px;
+
+                }
+
+                .register {
+                    display: flex;
+                    margin-bottom: 10px;
+                    width: 100%;
+                    max-width: 350px;
+                    align-items: stretch;
+                    flex-direction: column;
+                    margin-top: 24px;
+
+                    input {
+                        padding: 9px 8px 7px 8px;
+                        border: 1px solid $main-border;
+                        background-color: $main-background;
+                        margin: 0 40px 6px;
+
+                        &:hover {
+                            box-shadow: 0 0 0 1px #c0c4cc inset;
+                        }
+                    }
+
+                    .log-in-btn {
+                        margin: 8px 40px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        padding: 5px 9px;
+                        text-align: center;
+
+                        &[disabled] {
+                            background-color: $blue-disable;
+                        }
+                    }
+
+
+                }
+
+                .space {
+                    display: flex;
+                    font-size: rem(13px);
+                    margin: 10px 40px 18px;
+                    .line {
+                        position: relative;
+                        top: 0.5em;
+                        height: 1px;
+                        background-color: $spacer;
+                        flex-grow: 1;
+                    }
+
+                    .subtxt{
+                        font-weight: 600;
+                        line-height: 15px;
+                        margin: 0 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes changeBG {
+    0% {
+        opacity: 1;
+    }
+
+    17% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    92% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

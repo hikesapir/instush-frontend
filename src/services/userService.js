@@ -60,11 +60,8 @@ async function login() {
 }
 
 async function getLoggedinUser() {
-  // var user = await storageService.query()
-  // if (!user.length) user = await login()
-  // return user
-  console.log();
   return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || login()
+  // return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
 async function signup(userCred) {

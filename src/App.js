@@ -1,16 +1,32 @@
 import './assets/scss/style.scss'
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { MainApp } from './pages/MainApp';
 import { HomePage } from './pages/HomePage';
+import { useEffect } from 'react';
+import { loadLoggedinUser } from './store/actions/userActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
+  // const dispatch = useDispatch()
+  
+  // useEffect(async () => {
+  //   await dispatch(loadLoggedinUser())
+  // }, [])
+  
+  // const { loggedinUser } = useSelector(state => state.userModule)
+
+
+  // const PrivateRoute = (props) => {
+  //   return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />
+  // }
+
 
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/homepage" component={HomePage} ></Route>
-          <Route path="/" component={MainApp} ></Route>
+          <Route path="/homepage" component={HomePage} />
+          <Route path="/" component={MainApp} />
         </Switch>
       </div>
     </Router>
