@@ -1,13 +1,19 @@
 .homepage {
     .content-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         align-items: stretch;
         justify-content: center;
+        max-width: 935px;
+        width: 100%;
+
 
         .img-container {
             position: relative;
             width: 380px;
-            height: 582px;
             background-image: url('../../img/login-image-container.png');
             background-position: -46px 0;
             background-size: 468.32px 634.15px;
@@ -51,13 +57,14 @@
 
         .login-container {
             display: flex;
+            flex-direction: column;
             align-items: stretch;
             justify-content: center;
             margin-top: 12px;
             max-width: 350px;
             flex-grow: 1;
 
-            .login {
+            .container {
                 background-color: $white;
                 border: 1px solid $main-border;
                 border-radius: 1px;
@@ -69,8 +76,7 @@
                 .logo {
                     font-size: rem(50px);
                     text-align: center;
-                    margin-bottom: 12px;
-                    margin-top: 16px;
+                    margin: 36px 0 12px;
 
                 }
 
@@ -91,8 +97,9 @@
                         font-size: rem(12px);
                         border-radius: 3px;
 
-                        &:hover {
+                        &:focus {
                             box-shadow: 0 0 0 1px #c0c4cc inset;
+                            outline: 0;
                         }
                     }
 
@@ -157,6 +164,35 @@
                     line-height: 16px;
                     margin-top: 12px;
                     text-align: center;
+                }
+
+
+            }
+
+            .sign-up {
+                margin: 0 0 15px;
+                padding: 15px 0;
+                text-align: center;
+
+                .primary-txt {
+                    font-weight: 600;
+                }
+            }
+
+            .get-app {
+                text-align: center;
+
+                .download-buttons-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 20px 0;
+
+                    img {
+                        height: 40px;
+                        width: 134px;
+                        margin: 0 8px 0 0;
+                    }
                 }
             }
         }
