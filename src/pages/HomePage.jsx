@@ -24,6 +24,11 @@ export const HomePage = () => {
                             <p className='subtxt'> OR </p>
                             <div className="line"></div>
                         </div>
+                        <div className='facebook-log-in'>
+                            <span className="facebook-icon"></span>
+                            <span>Log in with Facebook</span>
+                        </div>
+                        <div className='dark-blue-txt'>Forgot password?</div>
                     </div>
                     <div className="sign-up"></div>
                     <div className="get-app"></div>

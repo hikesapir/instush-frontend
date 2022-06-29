@@ -88,31 +88,34 @@
                         border: 1px solid $main-border;
                         background-color: $main-background;
                         margin: 0 40px 6px;
+                        font-size: rem(12px);
+                        border-radius: 3px;
 
                         &:hover {
                             box-shadow: 0 0 0 1px #c0c4cc inset;
                         }
                     }
 
-                    .log-in-btn {
-                        margin: 8px 40px;
-                        font-size: 14px;
-                        font-weight: 600;
-                        padding: 5px 9px;
-                        text-align: center;
+                }
 
-                        &[disabled] {
-                            background-color: $blue-disable;
-                        }
+
+                .log-in-btn {
+                    margin: 8px 40px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    padding: 5px 9px;
+                    text-align: center;
+
+                    &[disabled] {
+                        background-color: $blue-disable;
                     }
-
-
                 }
 
                 .space {
                     display: flex;
                     font-size: rem(13px);
                     margin: 10px 40px 18px;
+
                     .line {
                         position: relative;
                         top: 0.5em;
@@ -121,11 +124,39 @@
                         flex-grow: 1;
                     }
 
-                    .subtxt{
+                    .subtxt {
                         font-weight: 600;
                         line-height: 15px;
                         margin: 0 18px;
                     }
+                }
+
+                .facebook-log-in {
+                    color: $blue-facebook;
+                    font-weight: 600;
+                    text-align: center;
+                    margin: 8px 40px;
+
+                    .facebook-icon {
+
+                        background-image: url('../../img/icons.png');
+                        background-repeat: no-repeat;
+                        background-position: -414px -259px;
+                        height: 16px;
+                        width: 16px;
+                        display: inline-block;
+                        margin-right: 8px;
+                        position: relative;
+                        top: 3px;
+                    }
+
+                }
+
+                .dark-blue-txt {
+                    font-size: rem(12px);
+                    line-height: 16px;
+                    margin-top: 12px;
+                    text-align: center;
                 }
             }
         }
