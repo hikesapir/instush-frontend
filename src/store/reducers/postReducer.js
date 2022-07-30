@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     posts: [],
-    filterBy: { page: 0 },
+    filterBy: { page: 0, pageSize: 3 },
     postInfo: null
 }
 

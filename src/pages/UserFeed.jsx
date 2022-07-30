@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { PostList } from '../cmps/PostList'
 import { SideBar } from '../cmps/SideBar'
 import { StoryList } from '../cmps/StoryList'
-import { useEffectUpdate } from '../hooks/useEffectUpdate'
 import { clearPosts, loadPosts, setFilterBy } from '../store/actions/postActions'
 import { loadStories } from '../store/actions/srotyActions'
 
@@ -52,7 +51,10 @@ export const UserFeed = ({ onChangeFilter, loading }) => {
     }
 
     const loadAgain = async () => {
-        await dispatch(setFilterBy({ page: pageNum }))
+        await dispatch(setFilterBy({
+            page: pageNum,
+            pageSize: 3
+        }))
         dispatch(loadPosts())
     }
 

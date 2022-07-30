@@ -6,6 +6,7 @@ import { ReactComponent as UnfollowIcon } from '../assets/icons/unfollow-icon.sv
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { FollowBtn } from '../cmps/FollowBtn';
 import { NoPost } from '../cmps/NoPost';
+import { clearPosts, loadPosts, setFilterBy } from '../store/actions/postActions';
 
 
 export const UserProfile = () => {
@@ -16,11 +17,25 @@ export const UserProfile = () => {
     const { loggedinUser } = useSelector(state => state.userModule)
 
     useEffect(() => {
+        return () => {
+            dispatch(clearPosts())
+        }
+    }, [])
+
+    useEffect(() => {
         dispatch(loadCurrnUser(params.userId))
+        loadAgain()
         return () => {
             dispatch(loadCurrnUser(null))
         }
     }, [params.userId])
+
+    const loadAgain = async () => {
+        await dispatch(setFilterBy({
+            userId: params.userId
+        }))
+        dispatch(loadPosts())
+    }
 
     useEffect(() => {
         dispatch(loadCurrnUser(params.userId))

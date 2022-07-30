@@ -25,7 +25,7 @@ export const MainApp = () => {
             <Switch>
                 <Route path="/post/:postId" component={PostDetails}></Route>
                 <Route path="/feed/:userId" component={UserProfile}></Route>
-                <Route path="/" component={() => (<UserFeed />)}></Route>
+                <Route path="/" component={UserFeed}></Route>
             </Switch>
         </section >
     )
