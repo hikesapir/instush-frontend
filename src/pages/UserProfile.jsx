@@ -22,15 +22,10 @@ export const UserProfile = () => {
         }
     }, [params.userId])
 
-
-
     useEffect(() => {
         dispatch(loadCurrnUser(params.userId))
 
     }, [loggedinUser?.following.length])
-
-
-
 
     const follow = async (loggedinUser, userToFollow) => {
         dispatch(startFollow(loggedinUser, userToFollow))

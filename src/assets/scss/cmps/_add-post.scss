@@ -43,6 +43,15 @@
 
         max-height: 80vmin;
 
+        &.editor-modal {
+            width: calc(100% - 10px);
+            // max-width: 1195px;
+            // min-width: 688px;
+            // min-height: 391px;
+            // max-height: 587px;
+ 
+        }
+
         header {
             padding: 11px 16px;
             border-bottom: 1px solid $main-border ;
@@ -147,4 +156,6 @@
             }
         }
     }
+
+
 }

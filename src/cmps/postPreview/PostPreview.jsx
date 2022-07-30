@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useEffect } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { DateToDisplay } from "./DateToDisplay";
 import { AddComment } from "./AddComment";
@@ -6,9 +6,8 @@ import { PostActions } from "./PostActions";
 import { useDispatch } from "react-redux";
 import { likeClicked } from "../../store/actions/postActions";
 
-export const PostPreview = ({ post, user }) => {
+export const PostPreview = memo(({ post, user, setRef }) => {
   const dispatch = useDispatch()
-
   const { by, txt, imgUrl, comments, createdAt, loc } = post
   const history = useHistory()
   const goToProfile = () => {
@@ -20,7 +19,7 @@ export const PostPreview = ({ post, user }) => {
   }
 
   return (
-    <section className="post-preview">
+    <section className="post-preview" ref={setRef}>
       <header>
         <img className="pointer" src={by.imgUrl} alt="" onClick={goToProfile} />
         <div>
@@ -35,11 +34,11 @@ export const PostPreview = ({ post, user }) => {
         <p><span className="bold">{by.username}</span> {txt}</p>
         <p className="subtxt">View all {comments.length} {comments.length !== 1 ? 'comments' : 'comment'} </p>
         {/* </div> */}
-        <DateToDisplay  createdAt={createdAt} />
+        <DateToDisplay createdAt={createdAt} />
       </footer>
 
       <AddComment post={post} user={user}></AddComment>
 
     </section>
   );
-}
+})

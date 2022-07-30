@@ -25,8 +25,8 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/homepage" component={HomePage} />
-          <Route path="/" component={MainApp} />
+          <Route path="/feed" component={MainApp} />
+          <Route path="/" component={HomePage} />
         </Switch>
       </div>
     </Router>

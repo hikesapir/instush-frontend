@@ -18,7 +18,7 @@ export function AppHeader() {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     const goHome = () => {
-        history.push(`/`)
+        history.push(`/feed`)
     }
     const goTOProfile = () => {
         history.push(`/feed/${loggedinUser._id}`)

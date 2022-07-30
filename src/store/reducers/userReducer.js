@@ -19,12 +19,11 @@ export function userReducer(state = INITIAL_STATE, action) {
                 currUser: action.currUser
             }
         case 'UPDATE_USER':
-            console.log('up', action.user);
             return {
                 ...state,
                 loggedinUser: action.user
             }
-        case 'SET_FILTER_BY':
+        case 'SET_USER_FILTER_BY':
             return {
                 ...state,
                 filterBy: { ...action.filterBy }

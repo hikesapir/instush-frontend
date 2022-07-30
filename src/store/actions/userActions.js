@@ -36,7 +36,7 @@ export function startFollow(loggedinUser, userToFollow) {
 
 export function setFilterBy(filterBy) {
     return async (dispatch) => {
-        dispatch({ type: 'SET_FILTER_BY', filterBy })
+        dispatch({ type: 'SET_USER_FILTER_BY', filterBy })
     }
 }
 

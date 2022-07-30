@@ -101,7 +101,8 @@ async function addFollower(userId, miniUser) {
 
 async function query(filterBy) {
   var users = await gUsers
-  if(filterBy)users = users.filter(user => user.username.toLowerCase().includes(filterBy.txt.toLowerCase()))
+  if(filterBy)users = users.filter(user => user.username.toLowerCase().includes(
+    filterBy.txt.toLowerCase()))
   return users
 }
 

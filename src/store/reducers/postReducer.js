@@ -1,14 +1,23 @@
 const INITIAL_STATE = {
-    posts: null
+    posts: [],
+    filterBy: { page: 1 },
+    postInfo: null
 }
 
 export function postReducer(state = INITIAL_STATE, action) {
-
+    // console.log(action);
     switch (action.type) {
         case 'SET_POSTS':
+            console.log(action.posts);
             return {
                 ...state,
-                posts: action.posts
+                posts: [...state.posts, ...action.posts]
+            }
+        case 'SET_POST_INFO':
+            console.log(action.info);
+            return {
+                ...state,
+                postInfo: action.info
             }
         case 'ADD_POSTS':
             return {
@@ -24,6 +33,11 @@ export function postReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 posts: state.posts.map(post => post._id === action.savedPost._id ? action.savedPost : post)
+            }
+        case 'SET_POST_FILTER_BY':
+            return {
+                ...state,
+                filterBy: { ...action.filterBy }
             }
 
         default:

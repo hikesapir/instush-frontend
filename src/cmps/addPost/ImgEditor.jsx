@@ -21,6 +21,16 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
     const [draggable, setDraggable] = useState(false)
     const [clickPos, setClickPos] = useState(null)
     const [imagePos, setImagePos] = useState({ x: 0, y: 0 })
+    const [canvasSize, setCanvasSize] = useState(700)
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            console.log('resize', (window.innerWidth * 0.6) - 340)
+            if (window.innerWidth < 1020) {
+                setCanvasSize((window.innerWidth * 0.6) - 340)
+            }
+        })
+    })
 
     useEffect(() => {
         const size = keepImgProportion(700, 700, image.width, image.height)
@@ -104,7 +114,7 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
             <span className='close-icon pointer' onClick={closeModal}>
                 <CloseIcon />
             </span>
-            <div className='modal'>
+            <div className='modal editor-modal'>
                 <header className='bold'>
                     <div className='modal-title flex'>
                         <button onClick={() => setImage(null)}>
@@ -117,7 +127,7 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
                 <section className='content'>
                     <section className='img-editor'>
                         <div className='canvas-container'>
-                            <canvas ref={canvasRef} width="700" height="700"
+                            <canvas ref={canvasRef} width={canvasSize} height={canvasSize}
                                 onMouseDown={handleMouseDown}
                                 onMouseMove={handleDrag}
                                 onMouseUp={handleMouseUp} ></canvas>
