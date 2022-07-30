@@ -4,7 +4,7 @@ export function loadPosts() {
     return async (dispatch, getState) => {
         const { filterBy } = getState().postModule
         const posts = await postService.query(filterBy)
-        console.log(posts.posts);
+        // console.log(posts.info);
         if (posts.posts.length) {
             dispatch({ type: 'SET_POST_INFO', info: posts.info })
             dispatch({ type: 'SET_POSTS', posts: posts.posts })

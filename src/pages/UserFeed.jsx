@@ -1,34 +1,53 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostList } from '../cmps/PostList'
 import { SideBar } from '../cmps/SideBar'
 import { StoryList } from '../cmps/StoryList'
 import { useEffectUpdate } from '../hooks/useEffectUpdate'
-import { loadPosts, setFilterBy } from '../store/actions/postActions'
+import { clearPosts, loadPosts, setFilterBy } from '../store/actions/postActions'
 import { loadStories } from '../store/actions/srotyActions'
 
 export const UserFeed = ({ onChangeFilter, loading }) => {
     const dispatch = useDispatch()
+
+    const { stories } = useSelector(state => state.storyModule)
+    const { posts } = useSelector(state => state.postModule)
+    const { loggedinUser } = useSelector(state => state.userModule)
     const { postInfo } = useSelector(state => state.postModule)
 
+    const [lastElement, setLastElement] = useState(null);
     const [pageNum, setPageNum] = useState(0);
+
+    const observer = useRef(new IntersectionObserver((entries) => {
+        const first = entries[0];
+        if (first.isIntersecting) {
+            setPageNum((no) => no + 1);
+        }
+    },
+        {
+            threshold: 0.8,
+        }
+
+    ))
 
     useEffect(() => {
         dispatch(loadStories())
         return () => {
+            dispatch(clearPosts())
         }
     }, [])
 
-
     useEffect(() => {
-        console.log(pageNum);
-        loadAgain()
+        // console.log(postInfo, pageNum);
+        if (!pageNum || postInfo.maxPage >= pageNum + 1) {
+            loadAgain()
+        }
         return () => {
         }
     }, [pageNum])
 
     const nextPage = () => {
-        if (postInfo.maxPage <= pageNum + 1) return
+        if (4 <= pageNum + 1) return
         setPageNum(no => no + 1)
     }
 
@@ -37,9 +56,20 @@ export const UserFeed = ({ onChangeFilter, loading }) => {
         dispatch(loadPosts())
     }
 
-    const { stories } = useSelector(state => state.storyModule)
-    const { posts } = useSelector(state => state.postModule)
-    const { loggedinUser } = useSelector(state => state.userModule)
+    useEffect(() => {
+        const currentElement = lastElement;
+        const currentObserver = observer.current;
+
+        if (currentElement) {
+            currentObserver.observe(currentElement);
+        }
+
+        return () => {
+            if (currentElement) {
+                currentObserver.unobserve(currentElement);
+            }
+        };
+    }, [lastElement]);
 
     if (!loggedinUser || !posts) return <div>Loading......</div>
 
@@ -47,7 +77,7 @@ export const UserFeed = ({ onChangeFilter, loading }) => {
         <section className='user-feed'>
             <main>
                 <StoryList stories={stories} loading={loading}></StoryList>
-                <PostList posts={posts} user={loggedinUser} nextPage={nextPage} ></PostList>
+                <PostList posts={posts} user={loggedinUser} nextPage={nextPage} setRef={setLastElement} ></PostList>
             </main>
             <SideBar loggedinUser={loggedinUser}></SideBar>
         </section>
