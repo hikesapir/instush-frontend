@@ -44,12 +44,23 @@
         max-height: 80vmin;
 
         &.editor-modal {
-            width: calc(100% - 10px);
+            height: auto;
+            max-width: none;
+            max-height: none;
+
+            @media (min-width:$tablet-breakpoint) {
+                width: calc(100% - 10px);
+            }
+
             // max-width: 1195px;
             // min-width: 688px;
             // min-height: 391px;
             // max-height: 587px;
- 
+
+            @media (min-width: 1120px) {
+                width: 1040px;
+            }
+
         }
 
         header {

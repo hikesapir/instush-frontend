@@ -24,20 +24,33 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
     const [canvasSize, setCanvasSize] = useState(700)
 
     useEffect(() => {
+        console.log(window.innerWidth);
+        if (window.innerWidth < 1120 && window.innerWidth > 720) {
+            setCanvasSize(window.innerWidth - 10 - 340)
+            fillCanvas()
+        } else if (window.innerWidth > 1120) {
+            setCanvasSize(700)
+            fillCanvas()
+        }
         window.addEventListener('resize', () => {
-            console.log('resize', (window.innerWidth * 0.6) - 340)
-            if (window.innerWidth < 1020) {
-                setCanvasSize((window.innerWidth * 0.6) - 340)
+            console.log('resize', (window.innerWidth * 0.628) - 340)
+            if (window.innerWidth < 1120 && window.innerWidth > 720) {
+                setCanvasSize(window.innerWidth - 10 - 340)
+                fillCanvas()
+            } else if (window.innerWidth > 1120) {
+                setCanvasSize(700)
+                fillCanvas()
             }
         })
     })
 
     useEffect(() => {
-        const size = keepImgProportion(700, 700, image.width, image.height)
+        const size = keepImgProportion(canvasSize, canvasSize, image.width, image.height)
+        // console.log('size', size, 'imagePos', imagePos, 'canvasSize', canvasSize);
         if (imagePos.x > 0) setImagePos(prevImagePos => ({ x: 0, y: prevImagePos.y }))
         else if (imagePos.y > 0) setImagePos(prevImagePos => ({ x: prevImagePos.x, y: 0 }))
-        else if (imagePos.x < 700 - size.width) setImagePos(prevImagePos => ({ x: 700 - size.width, y: prevImagePos.y }))
-        else if (imagePos.y < 700 - size.height) setImagePos(prevImagePos => ({ x: prevImagePos.x, y: 700 - size.height }))
+        else if (imagePos.x < canvasSize - size.width) setImagePos(prevImagePos => ({ x: canvasSize - size.width, y: prevImagePos.y }))
+        else if (imagePos.y < canvasSize - size.height) setImagePos(prevImagePos => ({ x: prevImagePos.x, y: canvasSize - size.height }))
         fillCanvas()
     }, [imagePos])
 
@@ -46,7 +59,7 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
         const context = canvas.getContext('2d')
         context.fillStyle = "white";
         context.fillRect(0, 0, canvas.width, canvas.height);
-        const size = keepImgProportion(700, 700, image.width, image.height)
+        const size = keepImgProportion(canvasSize, canvasSize, image.width, image.height)
         const posX = imagePos.x - pos.x
         const posY = imagePos.y - pos.y
         context.drawImage(image, posX, posY, size.width, size.height)

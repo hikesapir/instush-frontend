@@ -356,6 +356,45 @@ const posts = [
     ],
     "tags": []
   },
+  {
+    "_id": "p110",
+    "txt": "What?!❄⛄",
+    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1659263839/instush/fgzgr9v5qg1mzssv4w92.jpg",
+    "createdAt": 1659263791690,
+    "by": {
+      "_id": "u106",
+      "username": "clifford",
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1655479704/instush/wvv8b8vzpshtdxv75kx4.jpg",
+      "fullname": "Clifford The Dog"
+    },
+    "loc": {
+      "lat": 11.11,
+      "lng": 22.22,
+      "name": "Mount Hermon"
+    },
+    "comments": [],
+    "likedBy": [
+      {
+        "_id": "u105",
+        "username": "redFox",
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1653645729/instush/muql0fkpkczxpn98ivvo.jpg",
+        "fullname": "Ginnifer Goodwin"
+      },
+      {
+        "_id": "u104",
+        "username": "Arthur_Reed",
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414247/funday%20must/photo-1566492031773-4f4e44671857_pezzjc.jpg",
+        "fullname": "Arthur Reed"
+      },
+      {
+        "_id": "u103",
+        "username": "guest",
+        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+        "fullname": "ghost guest"
+      }
+    ],
+    "tags": []
+  },
 ]
 
 const users = [
