@@ -1,12 +1,12 @@
 import React from 'react'
 
-export const Login = ({register, handleChange}) => {
+export const Login = ({ register, handleChange, onLogin }) => {
 
 
     return (
         <div className="login container">
             <div className='logo' >Instush</div>
-            <form className='register'  >
+            <form className='register' onSubmit={onLogin}  >
                 <input type="text" autoComplete="off" name="username" placeholder="Username" onChange={handleChange} value={register.username} />
                 <input type="password" autoComplete="off" name="password" placeholder="Password" onChange={handleChange} value={register.password} />
                 <button className='log-in-btn btn-primary' type='submit' disabled={!register.username || !register.password}>Log In</button>

@@ -5,14 +5,15 @@ import { HomePage } from './pages/HomePage';
 import { useEffect } from 'react';
 import { loadLoggedinUser } from './store/actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
+import { PostDetails } from './pages/PostDetails';
 
 function App() {
   // const dispatch = useDispatch()
-  
+
   // useEffect(async () => {
   //   await dispatch(loadLoggedinUser())
   // }, [])
-  
+
   // const { loggedinUser } = useSelector(state => state.userModule)
 
 
@@ -25,6 +26,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/post/:postId" component={PostDetails}/>
           <Route path="/feed" component={MainApp} />
           <Route path="/" component={HomePage} />
         </Switch>

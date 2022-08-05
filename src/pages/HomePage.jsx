@@ -1,5 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import img1 from '../assets/img/1.png'
 import img2 from '../assets/img/2.png'
 import img3 from '../assets/img/3.png'
@@ -8,17 +10,28 @@ import appStore from '../assets/img/app-store.png'
 import googlePlay from '../assets/img/google-play.png'
 import { Login } from '../cmps/Login'
 import { useForm } from '../hooks/useForm'
+import { login } from '../store/actions/userActions'
 
 
 export const HomePage = () => {
+    const dispatch = useDispatch()
+    const history = useHistory()
+
     const [register, handleChange] = useForm({
         username: '',
         password: ''
     })
 
-    useEffect(() => {
-        console.log(register);
-    }, [register])
+    const onLogin = async (ev) => {
+        try {
+            ev.preventDefault()
+            await dispatch(login(register))
+            history.push('/feed')
+
+        } catch (err) {
+            console.log('HomePage.onLogin:', err)
+        }
+    }
 
     return (
         <section className='homepage'>
@@ -27,7 +40,7 @@ export const HomePage = () => {
                     {[img1, img2, img3, img4].map(img => <img src={img} alt="" key={img} />)}
                 </div>
                 <div className="login-container">
-                    <Login register handleChange />
+                    <Login register={register} handleChange={handleChange} onLogin={onLogin} />
                     <div className="sign-up container">
                         <p> Don't have an account?
                             <a href="#/homepage" className='primary-txt'> Sign up</a>

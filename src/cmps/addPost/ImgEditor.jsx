@@ -24,24 +24,11 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
     const [canvasSize, setCanvasSize] = useState(700)
 
     useEffect(() => {
-        console.log(window.innerWidth);
-        if (window.innerWidth < 1120 && window.innerWidth > 720) {
-            setCanvasSize(window.innerWidth - 10 - 340)
-            fillCanvas()
-        } else if (window.innerWidth > 1120) {
-            setCanvasSize(700)
-            fillCanvas()
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
         }
-        window.addEventListener('resize', () => {
-            console.log('resize', (window.innerWidth * 0.628) - 340)
-            if (window.innerWidth < 1120 && window.innerWidth > 720) {
-                setCanvasSize(window.innerWidth - 10 - 340)
-                fillCanvas()
-            } else if (window.innerWidth > 1120) {
-                setCanvasSize(700)
-                fillCanvas()
-            }
-        })
     })
 
     useEffect(() => {
@@ -53,6 +40,17 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
         else if (imagePos.y < canvasSize - size.height) setImagePos(prevImagePos => ({ x: prevImagePos.x, y: canvasSize - size.height }))
         fillCanvas()
     }, [imagePos])
+
+    const handleResize = () => {
+        console.log('resize', (window.innerWidth * 0.628) - 340)
+        if (window.innerWidth < 1120 && window.innerWidth > 720) {
+            setCanvasSize(window.innerWidth - 10 - 340)
+            fillCanvas()
+        } else if (window.innerWidth > 1120) {
+            setCanvasSize(700)
+            fillCanvas()
+        }
+    }
 
     const fillCanvas = (pos = { x: 0, y: 0 }) => {
         const canvas = canvasRef.current

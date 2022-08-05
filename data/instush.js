@@ -395,6 +395,52 @@ const posts = [
     ],
     "tags": []
   },
+  {
+    "_id": "p111",
+    "txt": "Yamy",
+    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1647806296/samples/food/dessert.jpg", //Can be an array if decide to support multiple imgs
+    "createdAt": 1652550132483,
+    "by": {
+      "_id": "u103",
+      "username": "guest",
+      "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+      "fullname": "ghost guest",
+    },
+    "loc": {
+      "lat": 11.11,
+      "lng": 22.22,
+      "name": "Secret"
+    },
+    "comments": [
+      {
+        "id": "c1001",
+        "by": {
+          "_id": "u101",
+          "username": "Muko",
+          "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+          "fullname": "Muki Muka",
+        },
+        "txt": "good one!",
+        "likedBy": [ // Optional
+          {
+            "_id": "u102",
+            "username": "Ulash",
+            "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg",
+            "fullname": "Ulash Ulashi"
+          }
+        ]
+      }
+    ],
+    "likedBy": [
+      {
+        "_id": "u101",
+        "username": "Muko",
+        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+        "fullname": "Muki Muka",
+      }
+    ],
+    "tags": ["fun", "kids"]
+  }
 ]
 
 const users = [

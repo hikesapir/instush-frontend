@@ -20,48 +20,60 @@ export const userService = {
 // Debug technique
 window.userService = userService
 
-async function login() {
-  // const users = await storageService.query('user')
-  const user = {
-    "_id": "u103",
-    "username": "guest",
-    "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
-    "fullname": "ghost guest",
-    "password": "123",
-    "createdAt": 1651820923732,
-    "following": [
-      {
-        "_id": "u101",
-        "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-      },
-      {
-        "_id": "u102",
-        "username": "Ulash",
-        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
-      }
-    ],
-    "followers": [
-      {
-        "_id": "u101",
-        "username": "Muko",
-        "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
-      },
-      {
-        "_id": "u102",
-        "username": "Ulash",
-        "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
-      }
-    ],
-    "savedPostIds": [],
-  }
-  localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
-  return user
+// async function login() {
+//   // const users = await storageService.query('user')
+//   const user = {
+//     "_id": "u103",
+//     "username": "guest",
+//     "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648463489/funday%20must/vote_1_bkio4y.png",
+//     "fullname": "ghost guest",
+//     "password": "123",
+//     "createdAt": 1651820923732,
+//     "following": [
+//       {
+//         "_id": "u101",
+//         "username": "Muko",
+//         "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+//       },
+//       {
+//         "_id": "u102",
+//         "username": "Ulash",
+//         "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+//       }
+//     ],
+//     "followers": [
+//       {
+//         "_id": "u101",
+//         "username": "Muko",
+//         "imgUrl": "https://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg"
+//       },
+//       {
+//         "_id": "u102",
+//         "username": "Ulash",
+//         "imgUrl": "https://res.cloudinary.com/mistertoysss/image/upload/v1648414285/funday%20must/photo-1618085222100-93f0eecad0aa_fuisxo.jpg"
+//       }
+//     ],
+//     "savedPostIds": [],
+//   }
+//   localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+//   return user
+// }
+
+async function login(userCred) {
+  console.log(userCred);
+  const users = await storageService.query(USER_KEY)
+  console.log(users);
+  const user = users.find(user => user.username === userCred.username)
+  return _saveLocalUser(user)
+
+  // const user = await httpService.post('auth/login', userCred)
+  // socketService.emit('set-user-socket', user._id);
+  // if (user) return _saveLocalUser(user)
 }
 
 async function getLoggedinUser() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || login()
-  // return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  // return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || login()
+  return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || 'null')
 }
 
 async function signup(userCred) {
@@ -83,8 +95,8 @@ async function getById(userId) {
 async function update(user) {
   await storageService.put(USER_KEY, user)
   // Handle case in which admin updates other user's details
-  const loggedinUser =await getLoggedinUser()
-  if (loggedinUser._id === user._id)  localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+  const loggedinUser = await getLoggedinUser()
+  if (loggedinUser._id === user._id) localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user;
 }
 
@@ -101,7 +113,7 @@ async function addFollower(userId, miniUser) {
 
 async function query(filterBy) {
   var users = await gUsers
-  if(filterBy)users = users.filter(user => user.username.toLowerCase().includes(
+  if (filterBy) users = users.filter(user => user.username.toLowerCase().includes(
     filterBy.txt.toLowerCase()))
   return users
 }
@@ -117,7 +129,14 @@ function remove(userId) {
   return storageService.remove('user', userId)
 }
 
-
+function _saveLocalUser(user) {
+  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+  // return user
+  return new Promise((res, rej) => {
+    if (!user) rej('can\'t find the user')
+    res(user)
+  })
+}
 
 
 async function _createUsers() {

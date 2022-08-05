@@ -6,12 +6,24 @@ export function loadLoggedinUser() {
         dispatch({ type: 'SET_LOGGEDIN_USER', loggedinUser })
     }
 }
+export function login(userCred) {
+    return async (dispatch) => {
+        try {
+            const loggedinUser = await userService.login(userCred)
+            dispatch({ type: 'SET_LOGGEDIN_USER', loggedinUser })
+        } catch (err) {
+            console.log('userActions.login:', err)
+            throw err
+        }
+    }
+}
 export function loadCurrnUser(id) {
     return async (dispatch) => {
         const currUser = await userService.getById(id)
         dispatch({ type: 'SET_CURR_USER', currUser })
     }
 }
+
 export function savedPost(user, postId) {
     return async (dispatch) => {
         const idx = user.savedPostIds.findIndex(id => id === postId)
@@ -22,6 +34,7 @@ export function savedPost(user, postId) {
         dispatch({ type: 'UPDATE_USER', user })
     }
 }
+
 export function startFollow(loggedinUser, userToFollow) {
     return async (dispatch) => {
         const { _id, username, imgUrl, fullname } = loggedinUser
