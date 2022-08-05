@@ -14,10 +14,11 @@ function App() {
     dispatch(loadLoggedinUser())
   }, [])
 
-  const { loggedinUser } = useSelector(state => state.userModule)
-
-
+  
+  
   const PrivateRoute = (props) => {
+    const { loggedinUser } = useSelector(state => state.userModule)
+    console.log(loggedinUser);
     return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />
   }
 
