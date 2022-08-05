@@ -4,8 +4,9 @@ import { MainApp } from './pages/MainApp';
 import { HomePage } from './pages/HomePage';
 import { useEffect } from 'react';
 import { loadLoggedinUser } from './store/actions/userActions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { PostDetails } from './pages/PostDetails';
+import { userService } from './services/userService';
 
 function App() {
   const dispatch = useDispatch()
@@ -13,12 +14,11 @@ function App() {
   useEffect(() => {
     dispatch(loadLoggedinUser())
   }, [])
-
+  
   
   
   const PrivateRoute = (props) => {
-    const { loggedinUser } = useSelector(state => state.userModule)
-    console.log(loggedinUser);
+    const loggedinUser = userService.getLoggedinUser()
     return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />
   }
 

@@ -71,8 +71,9 @@ async function login(userCred) {
   // if (user) return _saveLocalUser(user)
 }
 
-async function getLoggedinUser() {
+function getLoggedinUser() {
   // return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || login()
+
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || 'null')
 }
 
