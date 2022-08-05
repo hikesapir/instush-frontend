@@ -8,26 +8,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PostDetails } from './pages/PostDetails';
 
 function App() {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  // useEffect(async () => {
-  //   await dispatch(loadLoggedinUser())
-  // }, [])
+  useEffect(() => {
+    dispatch(loadLoggedinUser())
+  }, [])
 
-  // const { loggedinUser } = useSelector(state => state.userModule)
+  const { loggedinUser } = useSelector(state => state.userModule)
 
 
-  // const PrivateRoute = (props) => {
-  //   return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />
-  // }
+  const PrivateRoute = (props) => {
+    return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />
+  }
 
 
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/post/:postId" component={PostDetails}/>
-          <Route path="/feed" component={MainApp} />
+          <PrivateRoute path="/post/:postId" component={PostDetails} />
+          <PrivateRoute path="/feed" component={MainApp} />
           <Route path="/" component={HomePage} />
         </Switch>
       </div>

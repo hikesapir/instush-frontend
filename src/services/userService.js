@@ -73,7 +73,7 @@ async function login(userCred) {
 
 async function getLoggedinUser() {
   // return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || login()
-  return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || 'null')
+  return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || 'null')
 }
 
 async function signup(userCred) {
@@ -130,10 +130,10 @@ function remove(userId) {
 }
 
 function _saveLocalUser(user) {
-  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   // return user
   return new Promise((res, rej) => {
     if (!user) rej('can\'t find the user')
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     res(user)
   })
 }
