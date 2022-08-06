@@ -1,7 +1,12 @@
 import { utilService } from "./util-service"
 import { storageService } from "./asyncStorageService"
+import { httpService } from './http.service'
+
+
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const USER_KEY = 'userDb'
+const USER_URL = 'user/'
+const AUTH_URL = 'auth/'
 const gUsers = _createUsers()
 
 export const userService = {
@@ -60,15 +65,15 @@ window.userService = userService
 // }
 
 async function login(userCred) {
-  console.log(userCred);
-  const users = await storageService.query(USER_KEY)
-  console.log(users);
-  const user = users.find(user => user.username === userCred.username)
-  return _saveLocalUser(user)
+  // console.log(userCred);
+  // const users = await storageService.query(USER_KEY)
+  // console.log(users);
+  // const user = users.find(user => user.username === userCred.username)
+  // return _saveLocalUser(user)
 
-  // const user = await httpService.post('auth/login', userCred)
+  const user = await httpService.post(AUTH_URL + "login", userCred)
   // socketService.emit('set-user-socket', user._id);
-  // if (user) return _saveLocalUser(user)
+  if (user) return _saveLocalUser(user)
 }
 
 function getLoggedinUser() {
@@ -78,9 +83,10 @@ function getLoggedinUser() {
 }
 
 async function signup(userCred) {
-  userCred.score = 10000;
-  const user = await storageService.user('user', userCred)
-  return storageService.user(STORAGE_KEY_LOGGEDIN_USER, user)
+  // const user = await storageService.user('user', userCred)
+  // return storageService.user(STORAGE_KEY_LOGGEDIN_USER, user)
+  const user = await httpService.post(AUTH_URL + "signup", userCred)
+  return _saveLocalUser(user)
 }
 
 async function logout() {
@@ -88,16 +94,21 @@ async function logout() {
 }
 
 async function getById(userId) {
-  if (!gUsers.length) _createUsers()
-  const user = await storageService.getById(USER_KEY, userId)
-  return user;
+  // if (!gUsers.length) _createUsers()
+  // const user = await storageService.getById(USER_KEY, userId)
+  // return user;
+  if (userId === null) return null
+  const user = await httpService.get(USER_URL + userId)
+  return user
 }
 
 async function update(user) {
-  await storageService.put(USER_KEY, user)
+  // await storageService.put(USER_KEY, user)
+  user = await httpService.put(USER_URL + user._id, user)
+
   // Handle case in which admin updates other user's details
-  const loggedinUser = await getLoggedinUser()
-  if (loggedinUser._id === user._id) localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+  const loggedinUser = getLoggedinUser()
+  if (loggedinUser._id === user._id) _saveLocalUser(user)
   return user;
 }
 
@@ -113,17 +124,20 @@ async function addFollower(userId, miniUser) {
 }
 
 async function query(filterBy) {
-  var users = await gUsers
-  if (filterBy) users = users.filter(user => user.username.toLowerCase().includes(
-    filterBy.txt.toLowerCase()))
-  return users
+  // var users = await gUsers
+  // if (filterBy) users = users.filter(user => user.username.toLowerCase().includes(
+  //   filterBy.txt.toLowerCase()))
+  // return users
+  return httpService.get(USER_URL)
+
 }
 
 
 
 
 function getUsers() {
-  return storageService.query('user')
+  // return storageService.query('user')
+  return httpService.get(USER_URL)
 }
 
 function remove(userId) {

@@ -16,7 +16,7 @@ const gPosts = _createPosts()
 
 async function query(filterBy) {
   // const posts = await gPosts
-  const posts = await httpService.get(POST_URL, { params: filterBy })
+  const posts = await httpService.get(POST_URL, { filterBy })
 
   return posts
 }

@@ -15,8 +15,6 @@ function App() {
     dispatch(loadLoggedinUser())
   }, [])
   
-  
-  
   const PrivateRoute = (props) => {
     const loggedinUser = userService.getLoggedinUser()
     return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />

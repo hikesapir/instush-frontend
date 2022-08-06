@@ -16,8 +16,8 @@ export const ImgEditor = ({ image, setImage, closeModal }) => {
         loca: '',
         txt: ''
     })
-
     const canvasRef = useRef(null)
+    
     const [draggable, setDraggable] = useState(false)
     const [clickPos, setClickPos] = useState(null)
     const [imagePos, setImagePos] = useState({ x: 0, y: 0 })
