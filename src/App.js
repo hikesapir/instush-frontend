@@ -17,6 +17,7 @@ function App() {
   
   const PrivateRoute = (props) => {
     const loggedinUser = userService.getLoggedinUser()
+    console.log(loggedinUser);
     return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />
   }
 
@@ -25,9 +26,8 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <PrivateRoute path="/post/:postId" component={PostDetails} />
-          <PrivateRoute path="/feed" component={MainApp} />
-          <Route path="/" component={HomePage} />
+          <Route path="/homepage" component={HomePage} />
+          <PrivateRoute path="/" component={MainApp} />
         </Switch>
       </div>
     </Router>
