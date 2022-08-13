@@ -5,7 +5,6 @@ import { HomePage } from './pages/HomePage';
 import { useEffect } from 'react';
 import { loadLoggedinUser } from './store/actions/userActions';
 import { useDispatch } from 'react-redux';
-import { PostDetails } from './pages/PostDetails';
 import { userService } from './services/userService';
 
 function App() {
@@ -14,10 +13,9 @@ function App() {
   useEffect(() => {
     dispatch(loadLoggedinUser())
   }, [])
-  
+
   const PrivateRoute = (props) => {
     const loggedinUser = userService.getLoggedinUser()
-    console.log(loggedinUser);
     return loggedinUser ? <Route {...props} /> : <Redirect to='/homepage' />
   }
 
