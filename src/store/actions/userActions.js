@@ -6,6 +6,7 @@ export function loadLoggedinUser() {
         dispatch({ type: 'SET_LOGGEDIN_USER', loggedinUser })
     }
 }
+
 export function login(userCred) {
     return async (dispatch) => {
         try {
@@ -17,6 +18,7 @@ export function login(userCred) {
         }
     }
 }
+
 export function loadCurrnUser(id) {
     return async (dispatch) => {
         const currUser = await userService.getById(id)
@@ -35,8 +37,9 @@ export function savedPost(user, postId) {
     }
 }
 
-export function startFollow(loggedinUser, userToFollow) {
-    return async (dispatch) => {
+export function startFollow(userToFollow) {
+    return async (dispatch, getState) => {
+        const { loggedinUser } = getState().userModule
         const { _id, username, imgUrl, fullname } = loggedinUser
         const idx = loggedinUser.following.findIndex(user => user._id === userToFollow._id)
         if (idx === -1) loggedinUser.following.push(userToFollow)

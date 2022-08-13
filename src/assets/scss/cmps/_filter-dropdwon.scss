@@ -9,14 +9,16 @@
         border-radius: 6px;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
         background-color: rgb(255, 255, 255);
-        opacity: 1;
+        // opacity: 1;
         transform: translate(0);
         transition: opacity 75ms linear, transform 38ms ease-out;
         transform-origin: top center;
+        display: block;
 
         &.hide {
-            opacity: 0;
-            transform: translateY(-50);
+            // opacity: 0;
+            display: none;
+            transform: translateY(-50%);
         }
 
         .square {

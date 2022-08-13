@@ -37,9 +37,17 @@ export function addPost(post) {
     }
 }
 
-export function likeClicked(post, user) {
-    return async (dispatch) => {
+export function likeClicked(post) {
+    return async (dispatch, getState) => {
         try {
+            const { loggedinUser } = getState().userModule
+            const user = {
+                _id: loggedinUser._id,
+                username: loggedinUser.username,
+                imgUrl: loggedinUser.imgUrl,
+                fullname: loggedinUser.fullname
+            }
+
             const savedPost = await postService.updatePost('like-clicked', post, user)
             dispatch({ type: 'UPDATE_POSTS', savedPost })
 
@@ -50,10 +58,17 @@ export function likeClicked(post, user) {
     }
 }
 
-export function addComment(post, user, comment) {
-    return async (dispatch) => {
+export function addComment(post, comment) {
+    return async (dispatch, getState) => {
         try {
-            const savedPost = await postService.updatePost('add-comment', post, user, comment)
+            const { loggedinUser } = getState().userModule
+            const user = {
+                _id: loggedinUser._id,
+                username: loggedinUser.username,
+                imgUrl: loggedinUser.imgUrl,
+                fullname: loggedinUser.fullname
+            }
+            const savedPost = await postService.updatePost('add-comment', post, comment)
             dispatch({ type: 'UPDATE_POSTS', savedPost })
         } catch (err) {
             console.log('err:', err)

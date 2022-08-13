@@ -17,11 +17,18 @@ export const AddComment = ({ post, user }) => {
         console.log(ev);
         console.log(comment.txt);
         ev.preventDefault()
+
+        const loggedinUser = {
+            _id: user._id,
+            username: user.username,
+            imgUrl: user.imgUrl,
+            fullname: user.fullname
+        }
         if ((ev.key === 'Enter' && !ev.shiftKey) || ev.type === 'submit') {
             dispatch(addComment(post, comment))
             setComment({
                 txt: '',
-                by: user,
+                by: loggedinUser,
                 likedBy: []
             })
         }

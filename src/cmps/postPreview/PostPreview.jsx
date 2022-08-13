@@ -15,7 +15,7 @@ export const PostPreview = memo(({ post, user, setRef }) => {
   }
 
   const onClickLikeBtn = async () => {
-    dispatch(likeClicked(post, user))
+    dispatch(likeClicked(post))
   }
 
   return (

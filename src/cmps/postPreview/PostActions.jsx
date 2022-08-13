@@ -22,7 +22,7 @@ export const PostActions = ({ post, user }) => {
     }
 
     const onClickLikeBtn = async (post) => {
-        dispatch(likeClicked(post, user))
+        dispatch(likeClicked(post))
     }
     const onBookmarkBtn = async (user, _id) => {
         dispatch(savedPost(user, _id))

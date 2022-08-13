@@ -42,8 +42,8 @@ export const UserProfile = () => {
 
     }, [loggedinUser?.following.length])
 
-    const follow = async (loggedinUser, userToFollow) => {
-        dispatch(startFollow(loggedinUser, userToFollow))
+    const follow = async (userToFollow) => {
+        dispatch(startFollow(userToFollow))
     }
 
     const goToPost = (id) => {
@@ -70,7 +70,7 @@ export const UserProfile = () => {
                             {
                                 (loggedinUser._id !== currUser._id) ?
                                     (currUser.followers.some(user => user._id === loggedinUser._id)
-                                        ? <button onClick={() => follow(loggedinUser, currUser)} ><UnfollowIcon /></button>
+                                        ? <button onClick={() => follow(currUser)} ><UnfollowIcon /></button>
                                         : <FollowBtn loggedinUser={loggedinUser} userToFollow={currUser} />)
                                     : <></>
                             }

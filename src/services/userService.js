@@ -105,7 +105,6 @@ async function getById(userId) {
 async function update(user) {
   // await storageService.put(USER_KEY, user)
   user = await httpService.put(USER_URL + user._id, user)
-
   // Handle case in which admin updates other user's details
   const loggedinUser = getLoggedinUser()
   if (loggedinUser._id === user._id) _saveLocalUser(user)
@@ -113,13 +112,13 @@ async function update(user) {
 }
 
 async function addFollower(userId, miniUser) {
-  const user = await storageService.getById(USER_KEY, userId)
+  // const user = await storageService.getById(USER_KEY, userId)
+  const user = await httpService.get('user/' + userId)
   const idx = user.followers.findIndex(user => user._id === miniUser._id)
   if (idx === -1) user.followers.push(miniUser)
   else user.followers.splice(idx, 1)
-
+  await update(user)
   await storageService.put(USER_KEY, user)
-
   return user;
 }
 
@@ -131,9 +130,6 @@ async function query(filterBy) {
   return httpService.get(USER_URL)
 
 }
-
-
-
 
 function getUsers() {
   // return storageService.query('user')

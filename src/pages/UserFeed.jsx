@@ -24,7 +24,7 @@ export const UserFeed = ({ onChangeFilter, loading }) => {
         }
     },
         {
-            threshold: 0.8,
+            threshold: 0.5,
         }
 
     ))

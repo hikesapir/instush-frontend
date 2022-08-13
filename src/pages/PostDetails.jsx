@@ -31,16 +31,11 @@ export const PostDetails = (props) => {
     }
 
     const onClickLikeBtn = async () => {
-        dispatch(likeClicked(post, loggedinUser))
+        dispatch(likeClicked(post))
     }
 
     if (!post || !loggedinUser) return <div>Loading...</div>
-    const { by, txt, likedBy, imgUrl, comments, createdAt, loc } = post
-    const user = {
-        _id: loggedinUser._id,
-        username: loggedinUser.username,
-        imgUrl: loggedinUser.imgUrl
-    }
+    const { by, imgUrl, comments, createdAt, loc } = post
 
     return (
         <section className='post-details main-layout'>
@@ -62,7 +57,7 @@ export const PostDetails = (props) => {
                                 <img src={comment.by.imgUrl} alt="" />
                                 <div className='comment'>
                                     <div ><span className='bold'>{comment.by.username}</span>
-                                     <span className='comment-txt'>{comment.txt}</span></div>
+                                        <span className='comment-txt'>{comment.txt}</span></div>
                                     <div ><CommentDate createdAt={createdAt} /></div>
                                 </div>
                             </div>
@@ -70,7 +65,7 @@ export const PostDetails = (props) => {
                     })}
                 </main>
                 <PostActions post={post} user={loggedinUser}></PostActions>
-                <AddComment post={post} user={user} />
+                <AddComment post={post} user={loggedinUser} />
 
             </div>
         </section>
