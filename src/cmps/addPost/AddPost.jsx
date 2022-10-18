@@ -47,8 +47,8 @@ export const AddPost = ({ closeModal }) => {
     }
 
     return (
-        (image ? <ImgEditor image={image} setImage={setImage} closeModal={closeModal} /> :
-            <section className='add-post'>
+        (image ? <ImgEditor image={image} setImage={setImage} closeModal={closeModal} />
+            : <section className='add-post'>
                 <span className='close-icon pointer' onClick={closeModal}>
                     <CloseIcon />
                 </span>
