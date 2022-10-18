@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Login = ({ register, handleChange, onLogin }) => {
+export const Login = ({ register, handleChange, onLogin, onGuestLogin }) => {
 
 
     return (
@@ -16,9 +16,12 @@ export const Login = ({ register, handleChange, onLogin }) => {
                 <p className='subtxt'> OR </p>
                 <div className="line"></div>
             </div>
-            <div className='facebook-log-in'>
+            {/* <div className='facebook-log-in'>
                 <span className="facebook-icon"></span>
                 <span>Log in with Facebook</span>
+            </div> */}
+            <div className='flex column'>
+                <button className='guest-sign btn-primary' onClick={onGuestLogin}>Sign as Guest</button>
             </div>
             <div className='dark-blue-txt'>Forgot password?</div>
         </div>

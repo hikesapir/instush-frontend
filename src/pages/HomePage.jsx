@@ -32,6 +32,19 @@ export const HomePage = () => {
             console.log('HomePage.onLogin:', err)
         }
     }
+    const loginAsGuest = async (ev) => {
+        try {
+            ev.preventDefault()
+            await dispatch(login({
+                username: 'guest',
+                password: '123'
+            }))
+            history.push('/feed')
+
+        } catch (err) {
+            console.log('HomePage.onLogin:', err)
+        }
+    }
 
     return (
         <section className='homepage'>
@@ -40,7 +53,7 @@ export const HomePage = () => {
                     {[img1, img2, img3, img4].map(img => <img src={img} alt="" key={img} />)}
                 </div>
                 <div className="login-container">
-                    <Login register={register} handleChange={handleChange} onLogin={onLogin} />
+                    <Login register={register} handleChange={handleChange} onLogin={onLogin} onGuestLogin={loginAsGuest} />
                     <div className="sign-up container">
                         <p> Don't have an account?
                             <a href="#/homepage" className='primary-txt'> Sign up</a>
