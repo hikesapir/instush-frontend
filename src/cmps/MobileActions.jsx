@@ -24,7 +24,7 @@ export const MobileActions = () => {
   const goTOProfile = () => {
     history.push(`/feed/${loggedinUser._id}`)
   }
-
+  if (!loggedinUser) return
   return (
     <section className='mobile-actions flex'>
       <span className='pointer' onClick={goHome}><HomeIcon /></span>

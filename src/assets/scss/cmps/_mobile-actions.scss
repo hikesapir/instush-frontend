@@ -9,6 +9,11 @@
     z-index: 5;
     justify-content: space-between;
     align-items: center;
+    display: none;
+
+    @media (max-width:$mobile-breakpoint) {
+        display: flex;
+    }
 
     img {
         width: 24px;

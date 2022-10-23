@@ -32,7 +32,7 @@
         transform: translate(-50%, -50%);
         background-color: white;
         border-radius: 13px;
-        width: 700px;
+        // width: 700px;
         height: 753px;
         // min-width: 700px;
         // min-height: 80vh;
@@ -94,6 +94,11 @@
 
             .img-editor {
                 display: flex;
+                flex-direction: column;
+
+                @media (min-width:$tablet-breakpoint) {
+                    flex-direction: row;
+                }
 
                 .img-details {
                     width: 340px;

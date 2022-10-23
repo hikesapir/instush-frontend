@@ -5,6 +5,7 @@ import { ImgEditor } from './ImgEditor';
 import { useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
+import { utilService } from '../../services/util-service.js'
 
 
 
@@ -45,6 +46,7 @@ export const AddPost = ({ closeModal }) => {
     const preventDefault = (event) => {
         event.preventDefault();
     }
+    const isMobile = utilService.isMobile()
 
     return (
         (image ? <ImgEditor image={image} setImage={setImage} closeModal={closeModal} />
@@ -60,10 +62,10 @@ export const AddPost = ({ closeModal }) => {
                         <main onDragOver={preventDefault}
                             onDrop={handleFile} >
                             <MediaIcon></MediaIcon>
-                            <p>Drag photos and videos here</p>
+                            {!isMobile && <p>Drag photos and videos here</p>}
                             <label className='button btn-primary'
                                 htmlFor="post"
-                            >Select from computer</label>
+                            >Select from {isMobile ? 'gallery' : 'computer'}</label>
                             <input type="file" id='post' accept="image/*" onChange={handleFile} />
                         </main>
                     </section>

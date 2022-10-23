@@ -11,7 +11,7 @@ import { AddPost } from './addPost/AddPost';
 import { AppFilter } from './AppFilter';
 
 
-export function AppHeader() {
+export function AppHeader({ isMobile }) {
     const { loggedinUser } = useSelector(state => state.userModule)
     const history = useHistory()
 
@@ -34,15 +34,17 @@ export function AppHeader() {
         <section className='app-header'>
             <header className='header-content'>
                 <span className='logo pointer' onClick={goHome}>Instush</span>
-                <AppFilter></AppFilter>
-                <div className='route'>
-                    <span className='pointer' onClick={goHome}><HomeIcon /></span>
-                    <span><DirectIcon /></span>
-                    <span className='pointer' onClick={openModal}><NewPostIcon /></span>
-                    <span><CompassIcon /></span>
-                    <span><LikeIcon /></span>
-                    <span className='img pointer' onClick={goTOProfile}><img src={loggedinUser.imgUrl} alt="" /></span>
-                </div>
+                {!isMobile && <>
+                    <AppFilter></AppFilter>
+                    <div className='route'>
+                        <span className='pointer' onClick={goHome}><HomeIcon /></span>
+                        <span><DirectIcon /></span>
+                        <span className='pointer' onClick={openModal}><NewPostIcon /></span>
+                        <span><CompassIcon /></span>
+                        <span><LikeIcon /></span>
+                        <span className='img pointer' onClick={goTOProfile}><img src={loggedinUser.imgUrl} alt="" /></span>
+                    </div>
+                </>}
             </header>
             {isModalOpen ? <AddPost closeModal={openModal} /> : <></>}
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { MobileActions } from '../cmps/MobileActions'
 import { PostList } from '../cmps/PostList'
 import { SideBar } from '../cmps/SideBar'
 import { StoryList } from '../cmps/StoryList'
@@ -83,7 +82,7 @@ export const UserFeed = ({ onChangeFilter, loading }) => {
                 <PostList posts={posts} user={loggedinUser} nextPage={nextPage} setRef={setLastElement} ></PostList>
             </main>
             <SideBar loggedinUser={loggedinUser}></SideBar>
-            {/* <MobileActions /> */}
+           
         </section>
     )
 }

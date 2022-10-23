@@ -64,7 +64,10 @@ export const UserProfile = () => {
                 <div className="user-details">
                     <img src={currUser.imgUrl} alt="" />
                     <div >
-                        <div className='title'>{currUser.username}
+                        <div className='title'>
+                            <span>
+                                {currUser.username}
+                            </span>
 
                             <button className='bold'>{(loggedinUser._id !== currUser._id) ? 'Message' : 'Edit Profile'}</button>
                             {
