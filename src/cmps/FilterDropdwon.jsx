@@ -21,7 +21,6 @@ export const FilterDropdwon = ({ users, isOpen, setIsOpen }) => {
 
   }, [isOpen])
 
-  window.scrollTo(0, 0)
 
   return (
     <section className='filter-dropdwon'>
