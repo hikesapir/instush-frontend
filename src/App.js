@@ -4,11 +4,13 @@ import { MainApp } from './pages/MainApp';
 import { HomePage } from './pages/HomePage';
 import { useEffect } from 'react';
 import { loadLoggedinUser } from './store/actions/userActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userService } from './services/userService';
+import { Loader } from './cmps/Loader';
 
 function App() {
   const dispatch = useDispatch()
+  const isLoading = useSelector((state) => state.siteModule.isLoading)
 
   useEffect(() => {
     dispatch(loadLoggedinUser())
@@ -23,6 +25,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {isLoading && <Loader />}
         <Switch>
           <Route path="/homepage" component={HomePage} />
           <PrivateRoute path="/" component={MainApp} />

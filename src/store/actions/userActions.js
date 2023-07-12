@@ -10,11 +10,14 @@ export function loadLoggedinUser() {
 export function login(userCred) {
     return async (dispatch) => {
         try {
+            dispatch({ type: 'SET_IS_LOADING', isLoading: true })
             const loggedinUser = await userService.login(userCred)
             dispatch({ type: 'SET_LOGGEDIN_USER', loggedinUser })
         } catch (err) {
             console.log('userActions.login:', err)
             throw err
+        } finally {
+            dispatch({ type: 'SET_IS_LOADING', isLoading: false })
         }
     }
 }
